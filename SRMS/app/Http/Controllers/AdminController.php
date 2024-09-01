@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,12 +32,21 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request);
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            // 'role' => 'required',
+            'role' => 'required',
+            'studentId'=>'required',
+            'gender'=>'required',
+            'address'=>'required',
+            'phone_number'=>'required',
+            'user_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
+
+        
         if ($validator->fails()) {
             $message = $validator->errors()->first();
             echo $message; 
@@ -48,6 +58,24 @@ class AdminController extends Controller
         $users->email = $request->email;
         $users->password = Hash::make($request->password);
         $users->role = $request->role;
+        $users->studentId=$request->studentId;
+        $users->gender=$request->gender;
+        $users->address=$request->address;
+        $users->phone_number=$request->phone_number;
+
+        $file = $request->file('user_image');
+ 
+        $userImage = null;
+        if($file) {
+            $extension = $file->getClientOriginalExtension();
+            $newExtension = strtolower($extension);
+            $fileName = Str::slug($request->input('email')) . '-' . time() . '.' . $newExtension;
+            $path = $file->storeAs('user_image', $fileName, 'public');
+ 
+            $userImage = $path;
+        }
+
+        $users->user_image=$userImage;
         $users->save();
 
         return redirect()->route('user_management')->with('success', 'User created successfully.');
@@ -83,7 +111,12 @@ class AdminController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'nullable|min:8',
-            'role' => 'required'
+            'role' => 'required',
+            'studentId'=>'required',
+            'gender'=>'required',
+            'address'=>'required',
+            'phone_number'=>'required',
+            'user_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -91,14 +124,30 @@ class AdminController extends Controller
             echo $message; 
         }else{
             
-        $admin = User::findOrFail($id);
-        $admin->name = $request->name;
-        $admin->email = $request->email;
-        $admin->role = $request->role;
+        $users = User::findOrFail($id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->role = $request->role;
+        $users->studentId=$request->studentId;
+        $users->gender=$request->gender;
+        $users->address=$request->address;
+        $users->phone_number=$request->phone_number;
          if ($request->filled('password')) {
-            $admin->password = Hash::make($request->password);
+            $users->password = Hash::make($request->password);
         }
-        $admin->save();
+
+        $file = $request->file('user_image');
+ 
+                if($file) {
+                    $extension = $file->getClientOriginalExtension();
+                    $newExtension = strtolower($extension);
+                    $fileName = Str::slug($request->input('email')) . '-' . time() . '.' . $newExtension;
+                    $path = $file->storeAs('user_images', $fileName, 'public');
+ 
+                    $users->user_image = $path;
+                }
+
+        $users->save();
 
         return redirect()->route('user_management')->with('success', 'User updated successfully.');
         }

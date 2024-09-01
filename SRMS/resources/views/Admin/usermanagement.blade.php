@@ -342,14 +342,14 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-                    <p class="card-description"> Add class <code>.table</code>
-                    </p>
+                    <h4 class="card-title">User Details</h4>
+                    <p class="card-description"> Add users</p>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Name</th>
+                          <th>StudentId</th>  
+                          <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
                             <th>Action</th>
@@ -361,6 +361,7 @@
                           
                         @foreach($users as $user)
                       <tr>
+                        <td>{{ $user->studentId }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>

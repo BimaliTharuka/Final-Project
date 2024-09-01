@@ -338,9 +338,13 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample" action ="{{route('user_update', $users->id)}}"  method="post">
+                    <form class="forms-sample" action ="{{route('user_update', $users->id)}}"  method="post" enctype="multipart/form-data">
                       @csrf  
-                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="exampleInputName1">StudentId</label>
+                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1" name ="studentId" placeholder="Name">
+                      </div>
+                      <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
                       </div>
@@ -364,28 +368,30 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender">
-                          <option>Male</option>
-                          <option>Female</option>
+                        <select class="form-select" id="exampleSelectGender" name="gender">
+                        <option >{{ $users->gender }}</option>  
+                        <option value="Male">Male</option>
+                          <option value="Female">Female</option>
                         </select>
                       </div>
                       <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
+                        <img src= "{{ Storage::url($users->user_image) }}" >
+                      </div>
+                      <div class="image-upload">
+                        <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.png')}}" alt="img">
+                        </div> 
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputMobile">Mobile</label>
+                          <input type="text" class="form-control" name ="phone_number" value= "{{ $users->phone_number}}" id="exampleInputMobile" placeholder="Mobile number">
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" name ="address" id="exampleTextarea1" value= "{{ $users->address }}" rows="4">{{ $users->address }}</textarea>
                       </div>
                       <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
                       <a href ="{{ route('user_management', $users->id) }}"><button type="submit" class="btn btn-primary btn-rounded btn-fw">Update</button></a>

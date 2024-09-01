@@ -340,6 +340,10 @@
                     <p class="card-description"> Basic form elements </p>
                     <form class="forms-sample">
                       <div class="form-group">
+                        <label for="exampleInputName1">StudentId</label>
+                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1"  placeholder="Name" readonly>
+                      </div>
+                      <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" placeholder="Name" readonly>
                       </div>
@@ -347,14 +351,14 @@
                         <label for="exampleInputEmail3">Email address</label>
                         <input type="email" value= "{{ $users->email }}"  class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div>
+                        <input type="password" class="form-control"  id="exampleInputPassword4" placeholder="Password" name="password">
+                      </div> -->
                       <div class="form-group">
                         <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
-                          <option>Role</option>
+                        <select class="form-select " id="exampleFormControlSelect2" value= "{{ $users->role }}" readonly>
+                          <option>{{ $users->role }}</option>
                           <option>Admin</option>
                           <option>Lecturer</option>
                           <option>Student</option>
@@ -362,31 +366,35 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" readonly>
-                          <option>Male</option>
+                        <select class="form-select" id="exampleSelectGender" value= "{{ $users->gender }}" readonly>
+                        <option>{{ $users->gender }}</option>
+                        <option>Male</option>
                           <option>Female</option>
                         </select>
                       </div>
                       <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <img src= "{{ Storage::url($users->user_image) }}" >
+                        <!-- <label>Image upload</label> -->
+                        <!-- <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" readonly>
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                           </span>
+                        </div> -->
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputMobile">Mobile</label>
+                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value= "{{ $users->phone_number}}" readonly>
                         </div>
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" value="{{ $users->address }}" readonly>{{ $users->address }}</textarea>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" readonly></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
+                      <!-- <a href="{{ route('user_management') }}"><button class="btn btn-light">Cancel</button></a> -->
+                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
+
                     </form>
                   </div>
                 </div>

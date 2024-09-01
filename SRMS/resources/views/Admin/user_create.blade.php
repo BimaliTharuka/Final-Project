@@ -338,8 +338,12 @@
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
                     <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample" action ="{{route('user_store')}}" method="post">
+                    <form class="forms-sample" action ="{{route('user_store')}}" method="post" enctype="multipart/form-data">
                       @csrf
+                      <div class="form-group">
+                        <label for="exampleInputName1">StudentId</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="Name">
+                      </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
@@ -368,23 +372,21 @@
                           <option>Female</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
+                      <div class="image-upload">
+                      <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
+                          
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" name ="city" placeholder="Location">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1"  name ="textarea" rows="4"></textarea>
+                        <label for="exampleInputMobile">Mobile</label>
+                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
