@@ -66,11 +66,29 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/users/{id}/show', [AdminController::class, 'show'])->name('user_show');
 
     Route::get('/users/{id}/edit', [AdminController::class, 'edit'])->name('user_edit');
- 
 
+   // Exam routes
+        Route::get('exams', [ExamController::class, 'index'])->name('exams.index');
+        Route::get('exams/create', [ExamController::class, 'create'])->name('exams.create');
+        Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
+        Route::get('exams/{id}/edit', [ExamController::class, 'edit'])->name('exams.edit');
+        Route::put('exams/{id}', [ExamController::class, 'update'])->name('exams.update');
+        Route::delete('exams/{id}', [ExamController::class, 'destroy'])->name('exams.destroy');
+
+    // Admission request routes
+        Route::get('admission-requests', [AdmissionRequestController::class, 'index'])->name('admission-requests.index');
+        Route::post('admission-requests/{id}/update-status', [AdmissionRequestController::class, 'updateStatus'])->name('admission-requests.update-status');
+        Route::delete('admission-requests/{id}', [AdmissionRequestController::class, 'destroy'])->name('admission-requests.destroy');
+
+    // Resit request routes
+        Route::get('resit-requests', [ResitRequestController::class, 'index'])->name('resit-requests.index');
+        Route::post('resit-requests/{id}/update-status', [ResitRequestController::class, 'updateStatus'])->name('resit-requests.update-status');
+        Route::delete('resit-requests/{id}', [ResitRequestController::class, 'destroy'])->name('resit-requests.destroy');
 
 });
 
+
+    
 
 // Lecturer Routes
 Route::prefix('lecturer')->middleware(['auth', 'role:Lecturer'])->group(function () {
@@ -110,6 +128,16 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
     Route::get('/exam-request', function () {
         return view('Student.exam-request');
     })->name('student.exam-request');
+
+    //exam request
+    //write the route get for admission request form, show the send request table
+    Route::post('admission-requests', [AdmissionRequestController::class, 'store'])->name('admission-requests.store');
+
+    //resit exam request
+    //write the route get for admission request form, show the send request table
+    Route::post('resit-requests', [ResitRequestController::class, 'store'])->name('resit-requests.store');
+
+
 });
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
