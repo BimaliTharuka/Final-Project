@@ -334,12 +334,455 @@
           </ul>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
+        <!-- <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
+<div class="col-lg-12 grid-margin stretch-card"> -->
 
+<!-- <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Exam Resit Form</h4> -->
+                    <!-- <p class="card-description"> Basic form layout </p> -->
+                    <!-- <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                      </div>
+                      <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div>
+                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Horizontal Form</h4>
+                    <p class="card-description"> Horizontal form layout </p>
+                    <form class="forms-sample">
+                      <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
+                        <div class="col-sm-9">
+                          <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
+                        </div>
+                      </div>
+                      <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div>
+                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Material Form</h4>
+                    <p class="card-description"> default layout </p>
+                    <form class="forms-sample material-form">
+                      <div class="form-group">
+                        <input type="text" required="required" />
+                        <label for="input" class="control-label">Username</label><i class="bar"></i>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" required="required" />
+                        <label for="input" class="control-label">Email address</label><i class="bar"></i>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" required="required" />
+                        <label for="input" class="control-label">Password</label><i class="bar"></i>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" required="required" />
+                        <label for="input" class="control-label">Confirm Password</label><i class="bar"></i>
+                      </div>
+                      <div class="form-group">
+                        <textarea required="required"></textarea>
+                        <label for="textarea" class="control-label">Message</label><i class="bar"></i>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" checked="checked" /><i class="helper"></i>Remember me </label>
+                      </div>
+                      <div class="button-container">
+                        <button type="button" class="button btn btn-primary"><span>Submit</span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Resit Exam Request Application</h4>
+            <p class="card-description">Please fill out the form below to request a resit exam.</p>
+            <form class="forms-sample">
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" class="form-control" id="studentID" placeholder="Student ID" required>
+              </div>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" required>
+              </div>
+              <!-- Programme -->
+              <div class="form-group">
+                <label for="programme">Programme</label>
+                <input type="text" class="form-control" id="programme" placeholder="Programme" required>
+              </div>
+              <!-- Batch Number -->
+              <div class="form-group">
+                <label for="batchnumber">Batch Number</label>
+                <input type="text" class="form-control" id="batchnumber" placeholder="Batch Number" required>
+              </div>
+              <!-- Semester -->
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <input type="text" class="form-control" id="semester" placeholder="Semester" required>
+              </div>
+              <!-- Year -->
+              <div class="form-group">
+                <label for="year">Year</label>
+                <select class="form-control" id="year" required>
+                  <option value="">Select Year</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <!-- Add more years as needed -->
+                </select>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <label for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
+              </div>
+              <!-- Module Code -->
+              <div class="form-group">
+                <label for="moduleCode">Module Code</label>
+                <input type="text" class="form-control" id="moduleCode" placeholder="Module Code" required>
+              </div>
+              <!-- Preferred Date for Resit -->
+              <div class="form-group">
+                <label for="preferredDate">Preferred Date for Resit</label>
+                <input type="date" class="form-control" id="preferredDate" required>
+              </div>
+              <!-- Type of Resit -->
+              <div class="form-group">
+                <label for="rTypeofRequest">Type of Request</label>
+                <select class="form-control" id="rTypeofRequest" name="TypeofRequest" required>
+                  <option value="">Select Resit Type</option>
+                  <option value="resit">Resit</option>
+                  <option value="retake">Retake</option>
+                  <option value="re-correction">Re-Correction</option>
+                </select>
+              </div>
+              <!-- Attach Payment Slip -->
+              <div class="form-group">
+                <label for="paymentSlip">Payment Slip</label>
+                <p>Please attach a copy of the payment slip.</p>
+                <input type="file" class="form-control" id="paymentSlip" required>
+              </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I confirm that the information provided is accurate.
+                </label>
+              </div>
+              <!-- Important Note -->
+              <div class="form-group">
+                <p class="text-danger font-weight-bold mt-3">* Important Note: Students should submit the Request Form to the Examination Department within three weeks after the date of issue of Semester Examination Results.</p>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+    <div class="container-fluid clearfix">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">2024 © S.R.M.S</span>
+    </div>
+  </footer>
+  <!-- partial -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<!-- plugins:js -->
+<script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+<script src="{{ asset('assets/vendors/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.select.min.js') }}"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="{{ asset('assets/js/off-canvas.js') }}"></script>
+<script src="{{ asset('assets/js/hoverable-collapse.js') }}"></script>
+<script src="{{ asset('assets/js/misc.js') }}"></script>
+<script src="{{ asset('assets/js/settings.js') }}"></script>
+<script src="{{ asset('assets/js/todolist.js') }}"></script>
+<!-- endinject -->
+<script src="{{ asset('assets/js/dashboard.js') }}"></script>
+<script src="{{ asset('assets/js/validation.js') }}"></script>
+</body>
+</html>
+
+
+<div class="main-panel d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="content-wrapper w-50">
+    <div class="row justify-content-center">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center">Medical Reports Submission</h4>
+            <p class="card-description">Submit your medical report if you missed lectures and are not eligible for exams.</p>
+            <form class="forms-sample">
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+              </div>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="studentName">Name</label>
+                <input type="text" class="form-control" id="studentName" placeholder="Enter Name" required>
+              </div>
+              <!-- Programme -->
+              <div class="form-group">
+                <label for="programme">Programme</label>
+                <input type="text" class="form-control" id="programme" placeholder="Enter Programme" required>
+              </div>
+              <!-- Module Codes -->
+              <div class="form-group">
+                <label for="moduleCodes">Module Codes</label>
+                <div id="moduleCodes">
+                  <input type="text" class="form-control mb-2" name="moduleCode" placeholder="Enter Module Code" required>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addModuleCodeField()">Add Another Module Code</button>
+              </div>
+              <!-- Dates of Missed Lectures -->
+              <div class="form-group">
+                <label for="missedLectureDates">Dates of Missed Lectures</label>
+                <div id="missedLectureDates">
+                  <input type="date" class="form-control mb-2" name="missedLectureDate" required>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addDateField()">Add Another Date</button>
+              </div>
+              <!-- Attach Medical Reports -->
+              <div class="form-group">
+                <label for="medicalReports">Medical Reports</label>
+                <input type="file" class="form-control" id="medicalReports" accept=".pdf" required>
+                <small class="text-muted">Please attach a PDF file including all the medical reports.</small>
+              </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I confirm that the information provided is accurate.
+                </label>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function addModuleCodeField() {
+  var moduleField = document.createElement('input');
+  moduleField.type = 'text';
+  moduleField.className = 'form-control mb-2';
+  moduleField.name = 'moduleCode';
+  moduleField.placeholder = 'Enter Module Code';
+  moduleField.required = true;
+  document.getElementById('moduleCodes').appendChild(moduleField);
+}
+
+function addDateField() {
+  var dateField = document.createElement('input');
+  dateField.type = 'date';
+  dateField.className = 'form-control mb-2';
+  dateField.name = 'missedLectureDate';
+  dateField.required = true;
+  document.getElementById('missedLectureDates').appendChild(dateField);
+}
+</script>
+
+
+
+<div class="main-panel d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="content-wrapper w-50">
+    <div class="row justify-content-center">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center">Examination Admission Request</h4>
+            <p class="card-description">Submit your request for examination admission if you meet the eligibility criteria.</p>
+            <form class="forms-sample">
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+              </div>
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter Name" required>
+              </div>
+              <!-- Name with Initials -->
+              <div class="form-group">
+                <label for="NamewithInitials">Name with Initials</label>
+                <input type="text" class="form-control" id="NamewithInitials" placeholder="Name with Initials" required>
+              </div>
+              <!-- Contact Number -->
+              <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" class="form-control" id="contactNumber" placeholder="Enter Contact Number" required>
+              </div>
+              <!-- Attempt -->
+              <div class="form-group">
+                <label for="attempt">Attempt</label>
+                <select class="form-control" id="attempt" required>
+                  <option value="" disabled selected>Select Attempt</option>
+                  <option value="first-time">First Time</option>
+                  <option value="resit">Resit</option>
+                </select>
+              </div>
+              <!-- Course Codes -->
+              <div class="form-group">
+                <label for="courseCodes">Course Code</label>
+                <div id="courseCodes">
+                  <input type="text" class="form-control mb-2" name="courseCode" placeholder="Enter Course Code" required>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseCodeField()">Add Another Course Code</button>
+              </div>
+              <!-- Course Titles -->
+              <div class="form-group">
+                <label for="courseTitles">Course Title</label>
+                <div id="courseTitles">
+                  <input type="text" class="form-control mb-2" name="courseTitle" placeholder="Enter Course Title" required>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseTitleField()">Add Another Course Title</button>
+              </div>
+              <!-- Note -->
+              <div class="form-group">
+                <p class="text-muted">Please add the course code and course title that apply for the admission of the examination.</p>
+              </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I hereby declare that the above information is true to the best of my knowledge and belies.
+                </label>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function addCourseCodeField() {
+  var courseCodeField = document.createElement('input');
+  courseCodeField.type = 'text';
+  courseCodeField.className = 'form-control mb-2';
+  courseCodeField.name = 'courseCode';
+  courseCodeField.placeholder = 'Enter Course Code';
+  courseCodeField.required = true;
+  document.getElementById('courseCodes').appendChild(courseCodeField);
+}
+
+function addCourseTitleField() {
+  var courseTitleField = document.createElement('input');
+  courseTitleField.type = 'text';
+  courseTitleField.className = 'form-control mb-2';
+  courseTitleField.name = 'courseTitle';
+  courseTitleField.placeholder = 'Enter Course Title';
+  courseTitleField.required = true;
+  document.getElementById('courseTitles').appendChild(courseTitleField);
+}
+</script>
+
+
+
+
+
+
+
+                <!-- <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Hoverable Table</h4>
                     <p class="card-description"> Add class <code>.table-hover</code>
@@ -393,7 +836,7 @@
               </div>
               </div>
               </div>
-          </div>
+          </div> -->
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <!-- <footer class="footer">

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SRMS </title>
+    <title>SRMS</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css' )}}">
     <link rel="stylesheet" href="{{ asset( 'assets/vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker')}}">
+    
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css' )}}">
@@ -26,6 +27,23 @@
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
+      <!-- Existing content -->
+
+      <!-- Add your button with a link here -->
+      <div class="button-container" style="text-align: center; margin-top: 20px;">
+        <a href="your-target-page-url.html" class="btn btn-primary">Click Me</a>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+  
+<!-- <div style="text-align: center; margin-top: 20px;">
+    <a href="https://example.com" class="btn btn-primary">Click Here</a>
+</div>
+</body>
+</html> -->
+
       <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
           <div class="card-body card-body-padding px-3 d-flex align-items-center justify-content-between">
@@ -54,7 +72,7 @@
           </div>
           <div>
             <a class="navbar-brand brand-logo" href="index.html">
-              <img src="{{ asset('assets/images/logo.svg' )}}" alt="logo" />
+              <img src="{{ asset('assets/images/SRMS.png' )}}" alt="logo" />
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
               <img src="{{ asset('assets/images/logo-mini.svg' )}}" alt="logo" />
@@ -1092,5 +1110,9 @@
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
     <!-- End custom js for this page-->
-  </body>
+  
+<div style="text-align: left; padding-left: 20px;">
+    <a href="reqexamform.blade.php" class="btn btn-primary">Click Here</a>
+</div>
+</body>
 </html>
