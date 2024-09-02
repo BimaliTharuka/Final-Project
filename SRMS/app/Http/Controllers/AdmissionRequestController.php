@@ -28,6 +28,7 @@ class AdmissionRequestController extends Controller
     }
 
     // Update the status of an admission request
+    public function updateStatus(Request $request, $id)
     {
         $admissionRequest = AdmissionRequest::findOrFail($id);
         $admissionRequest->status = $request->input('status');
