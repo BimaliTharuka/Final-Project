@@ -335,11 +335,82 @@
         </nav>
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
-
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Exam Registration Form</h4>
+                        <p class="card-description"> Please complete the form below to register for your upcoming exams. Ensure all details are accurate and up-to-date. </p>
+                        <form class="forms-sample" id="examRegistrationForm">
+                            <div class="form-group">
+                                <label for="exampleInputFullname1">Full Name</label>
+                                <input type="text" class="form-control" id="exampleInputFullname1" placeholder="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputStudentID">Student ID</label>
+                                <input type="text" class="form-control" id="exampleInputStudentID" placeholder="Student ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputProgramme">Programme</label>
+                                <input type="text" class="form-control" id="exampleInputProgramme" placeholder="Programme">
+                            </div>
+                            <!-- New Fields -->
+                            <div class="form-group">
+                                <label for="exampleInputExamName">Exam Name</label>
+                                <input type="text" class="form-control" id="exampleInputExamName" placeholder="Exam Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputExamDate">Exam Date</label>
+                                <input type="date" class="form-control" id="exampleInputExamDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputCourse">Course</label>
+                                <input type="text" class="form-control" id="exampleInputCourse" placeholder="Course">
+                            </div>
+                            <div id="subjectFields">
+                                <div class="form-group">
+                                    <label for="exampleInputSubject1">Subject 1</label>
+                                    <input type="text" class="form-control" id="exampleInputSubject1" name="subject[]" placeholder="Subject 1">
+                                </div>
+                                <!-- Additional subjects will be added here -->
+                            </div>
+                            <button type="button" class="btn btn-secondary mb-3" id="addSubjectButton">Add Another Subject</button>
+                            
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input"> I confirm that all information provided is accurate and I am responsible for any inaccuracies.
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('addSubjectButton').addEventListener('click', function() {
+    var subjectFields = document.getElementById('subjectFields');
+    var numberOfSubjects = subjectFields.getElementsByTagName('input').length;
+    var newField = document.createElement('div');
+    newField.classList.add('form-group');
+    newField.innerHTML = '<label for="exampleInputSubject' + (numberOfSubjects + 1) + '">Subject ' + (numberOfSubjects + 1) + '</label>' +
+                         '<input type="text" class="form-control" id="exampleInputSubject' + (numberOfSubjects + 1) + '" name="subject[]" placeholder="Subject ' + (numberOfSubjects + 1) + '">';
+    subjectFields.appendChild(newField);
+});
+</script>
+
+
+
+
+
+              
+
+                <!-- <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Hoverable Table</h4>
                     <p class="card-description"> Add class <code>.table-hover</code>
@@ -393,7 +464,7 @@
               </div>
               </div>
               </div>
-          </div>
+          </div> -->
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <!-- <footer class="footer">

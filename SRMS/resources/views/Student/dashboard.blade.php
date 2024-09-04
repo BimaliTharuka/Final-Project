@@ -333,13 +333,15 @@
             </li> -->
           </ul>
         </nav>
+        
         <!-- partial -->
-        <div class="main-panel">
+        <!-- <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
               <div class="col-sm-12">
                 <div class="home-tab">
-                  <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <div class="d-sm-flex align-items-center justify-content-between border-bottom"> -->
+
                     <!-- <ul class="nav nav-tabs" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
@@ -362,7 +364,83 @@
                       </div>
                     </div> -->
                   </div>
-                  <div class="tab-content tab-content-basic">
+
+                  @extends('layouts.app')
+
+@section('content')
+<div class="container mt-0 pt-0">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Student Result Management System - Saegis Campus</h1>
+            <img src="{{ asset('images/saegis_logo.png') }}" alt="Saegis Campus" class="my-3">
+            <h3>Saegis Campus</h3>
+            <p>Student Result Management System</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Upcoming Exam Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Upcoming Exam</h4>
+                </div>
+                <div class="card-body">
+                    <p>There are no upcoming exams</p>
+                    <a href="{{ url('/calendar') }}">Go to calendar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Calendar</h4>
+                </div>
+                <div class="card-body">
+                    <img src="{{ asset('images/calendar.png') }}" alt="Calendar">
+                </div>
+            </div>
+        </div>
+
+        <!-- Site Announcements Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Site Announcements</h4>
+                </div>
+                <div class="card-body">
+                    <div class="announcement">
+                        <p><strong>REVISED RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES (DIPLOMA/CERTIFICATE PROGRAMMES)</strong></p>
+                        <p>by <strong>Lakmini Chamalika</strong> - Monday, 2 November 2023, 4:50 PM</p>
+                        <p><strong>DATE:</strong> 27.09.2022</p>
+                        <p><strong>TO:</strong> DIPLOMA/CERTIFICATE PROGRAMME STUDENTS (PEARSON ASSURED/LOCAL)</p>
+                        <p><strong>FROM:</strong> REGISTRAR</p>
+                        <p><strong>THROUGH:</strong> MANAGEMENT OF SAEGIS CAMPUS</p>
+                        <p><strong>SUBJECT:</strong> RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="row mt-4">
+        <div class="col-md-12 text-right">
+            @if(Auth::check())
+                <p>You are logged in as {{ Auth::user()->name }}</p>
+            @else
+                <p>You are not logged in. <a href="{{ route('login') }}">Login</a></p>
+            @endif
+        </div>
+    </div>
+</div>
+@endsection
+
+
+
+                  <!-- <div class="tab-content tab-content-basic">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                       <div class="row">
                         <div class="col-sm-12">
@@ -473,7 +551,8 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
+
                       <!-- <div class="row">
                         <div class="col-lg-8 d-flex flex-column">
                           <div class="row flex-grow">
