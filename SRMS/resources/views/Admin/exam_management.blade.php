@@ -236,9 +236,19 @@
                 <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item active"> 
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('result_management') }}">
@@ -336,6 +346,7 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+          <a href ="{{ route('exams.create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -347,43 +358,32 @@
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
+                            <th>Exam name</th>
+                            <th>Date</th>
+                            <th>Course</th>
+                           
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+
+                        @foreach($exams as $exam)
                           <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
+                            <td>{{ $exam->exam_name }}</td>
+                            <td>{{ $exam->exam_date }}</td>
+                            <td>{{ $exam->course }}</td>
+                            <td> <a href ="{{ route('exams.edit', $exam->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button></a>
+                             <a href ="{{ route('exams.view', $exam->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+                             <form  action="{{ route('exams.destroy', $exam->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
+                            </td>
+                            
                           </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -392,7 +392,7 @@
               </div>
               </div>
               </div>
-          </div>
+            </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <!-- <footer class="footer">

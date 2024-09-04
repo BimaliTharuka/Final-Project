@@ -236,9 +236,19 @@
                 <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('result_management') }}">
@@ -336,13 +346,13 @@
           <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title">Add New user Form</h4>
+                    <p class="card-description"> User Details </p>
                     <form class="forms-sample" action ="{{route('user_store')}}" method="post" enctype="multipart/form-data">
                       @csrf
                       <div class="form-group">
-                        <label for="exampleInputName1">StudentId</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="Name">
+                        <label for="exampleInputName1">Student ID</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="ID">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
@@ -389,7 +399,7 @@
                         <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a href="{{ route('user_management') }}"><button class="btn btn-light">Back</button></a>
                     </form>
                   </div>
                 </div>

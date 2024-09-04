@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ResitRequestController;
+use App\Http\Controllers\AdmissionRequestController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +37,10 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/exam_management', function () {
         return view('Admin.exam_management');
     })->name('exam_management');
+
+    // Route::get('/admission_requests', function () {
+    //     return view('Admin.admission_requests');
+    // })->name('admission.index');
     
     Route::get('/result_management', function () {
         return view('Admin.result_management');
@@ -72,17 +79,27 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::get('exams/create', [ExamController::class, 'create'])->name('exams.create');
         Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
         Route::get('exams/{id}/edit', [ExamController::class, 'edit'])->name('exams.edit');
+        // Route::put('exams/{id}', [ExamController::class, 'edit'])->name('exams.edit');
         Route::put('exams/{id}', [ExamController::class, 'update'])->name('exams.update');
+        Route::get('exams/{id}', [ExamController::class, 'view'])->name('exams.view');
         Route::delete('exams/{id}', [ExamController::class, 'destroy'])->name('exams.destroy');
 
     // Admission request routes
-        Route::get('admission-requests', [AdmissionRequestController::class, 'index'])->name('admission-requests.index');
-        Route::post('admission-requests/{id}/update-status', [AdmissionRequestController::class, 'updateStatus'])->name('admission-requests.update-status');
+        Route::get('admission-requests', [AdmissionRequestController::class, 'index'])->name('admission.index');
+        Route::get('admission-requests/{id}/edit', [AdmissionRequestController::class, 'edit'])->name('admission.edit');
+        Route::get('admission-requests/{id}', [AdmissionRequestController::class, 'view'])->name('admission.view');
+        Route::post('admission-requests/{id}/DeclineAdmissionRequest', [AdmissionRequestController::class, 'DeclineAdmissionRequest'])->name('admission.DeclineAdmissionRequest');
+        Route::post('admission-requests/{id}/AcceptAdmissionRequest', [AdmissionRequestController::class, 'AcceptAdmissionRequest'])->name('admission.AcceptAdmissionRequest');
+        //Route::get('admission-requests/create', [AdmissionRequestController::class, 'create'])->name('admission.create');
+        Route::post('admission-requests/{id}/update-status', [AdmissionRequestController::class, 'updateStatus'])->name('admission.update-status');
         Route::delete('admission-requests/{id}', [AdmissionRequestController::class, 'destroy'])->name('admission-requests.destroy');
 
     // Resit request routes
-        Route::get('resit-requests', [ResitRequestController::class, 'index'])->name('resit-requests.index');
-        Route::post('resit-requests/{id}/update-status', [ResitRequestController::class, 'updateStatus'])->name('resit-requests.update-status');
+        Route::get('resit-requests', [ResitRequestController::class, 'index'])->name('resit.index');
+        Route::get('resit-requests/{id}', [AdmissionRequestController::class, 'view'])->name('resit.view');
+        Route::post('resit-requests/{id}/DeclineAdmissionRequest', [AdmissionRequestController::class, 'DeclineAdmissionRequest'])->name('resit.DeclineAdmissionRequest');
+        Route::post('resit-requests/{id}/AcceptAdmissionRequest', [AdmissionRequestController::class, 'AcceptAdmissionRequest'])->name('resit.AcceptAdmissionRequest');
+        Route::post('resit-requests/{id}/update-status', [ResitRequestController::class, 'updateStatus'])->name('resit.update-status');
         Route::delete('resit-requests/{id}', [ResitRequestController::class, 'destroy'])->name('resit-requests.destroy');
 
 });
@@ -131,10 +148,17 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
 
     //exam request
     //write the route get for admission request form, show the send request table
+
+    Route::get('/admission_request', function () {
+        return view('Student.admission_requestform');
+    })->name('student.admission-request');
     Route::post('admission-requests', [AdmissionRequestController::class, 'store'])->name('admission-requests.store');
 
     //resit exam request
     //write the route get for admission request form, show the send request table
+    Route::get('/resit_request', function () {
+        return view('Student.resit_requestform');
+    })->name('student.resit_requestform');
     Route::post('resit-requests', [ResitRequestController::class, 'store'])->name('resit-requests.store');
 
 

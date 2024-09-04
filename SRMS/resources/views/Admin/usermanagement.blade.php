@@ -236,9 +236,19 @@
                 <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('result_management') }}">
@@ -337,7 +347,7 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a>
+          <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">ADD New User</button></a>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -348,7 +358,7 @@
                       <table class="table">
                         <thead>
                           <tr>
-                          <th>StudentId</th>  
+                          <th>Student ID</th>  
                           <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>

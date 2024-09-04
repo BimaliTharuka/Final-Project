@@ -11,12 +11,13 @@ class AdmissionRequestController extends Controller
     public function index()
     {
         $admissionRequests = AdmissionRequest::with('exam', 'student')->get();
-        return view('admission_requests.index', compact('admissionRequests'));
+        return view('Admin.admission_requests', compact('admissionRequests'));
     }
 
     // Store a new admission request in the database
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'exam_id' => 'required|exists:exams,id',
             'student_id' => 'required|exists:users,id',
@@ -24,25 +25,42 @@ class AdmissionRequestController extends Controller
 
         AdmissionRequest::create($validatedData);
 
-        return redirect()->route('admission-requests.index')->with('success', 'Admission request submitted successfully.');
+        return redirect()->route('student.exam-request')->with('success', 'Admission request submitted successfully.');
+        
+    }
+
+    //show the admission request form
+    public function view($id)
+    {
+        $admissionRequest = AdmissionRequest::findOrFail($id);
+        return view('Admin.admission_view', compact('admissionRequest'));
     }
 
     // Update the status of an admission request
-    public function updateStatus(Request $request, $id)
+
+    public function AcceptAdmissionRequest(Request $request, $id)
     {
         $admissionRequest = AdmissionRequest::findOrFail($id);
-        $admissionRequest->status = $request->input('status');
+        $admissionRequest->status = "Accepted";
         $admissionRequest->save();
 
-        return redirect()->route('admission-requests.index')->with('success', 'Admission request status updated successfully.');
+        return redirect()->route('admission.index')->with('success', 'Admission request Accepted.');
     }
 
+    public function DeclineAdmissionRequest(Request $request, $id)
+    {
+        $admissionRequest = AdmissionRequest::findOrFail($id);
+        $admissionRequest->status = "Declined";
+        $admissionRequest->save();
+
+        return redirect()->route('admission.index')->with('success', 'Admission request Declined.');
+    }
     // Delete an admission request from the database
     public function destroy($id)
     {
         $admissionRequest = AdmissionRequest::findOrFail($id);
         $admissionRequest->delete();
 
-        return redirect()->route('admission-requests.index')->with('success', 'Admission request deleted successfully.');
+        return redirect()->route('admission.index')->with('success', 'Admission request deleted successfully.');
     }
 }

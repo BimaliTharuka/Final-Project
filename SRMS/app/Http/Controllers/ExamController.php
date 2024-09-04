@@ -11,13 +11,13 @@ class ExamController extends Controller
     public function index()
     {
         $exams = Exam::all();
-        return view('exams.index', compact('exams'));
+        return view('Admin.exam_management', compact('exams'));
     }
 
     // Show the form to create a new exam
     public function create()
     {
-        return view('exams.create');
+        return view('Admin.exam_create');
     }
 
     // Store a new exam in the database
@@ -38,7 +38,13 @@ class ExamController extends Controller
     public function edit($id)
     {
         $exam = Exam::findOrFail($id);
-        return view('exams.edit', compact('exam'));
+        return view('Admin.exam_edit', compact('exam'));
+    }
+
+    public function view($id)
+    {
+        $exam = Exam::findOrFail($id);
+        return view('Admin.exam_show', compact('exam'));
     }
 
     // Update an existing exam in the database
