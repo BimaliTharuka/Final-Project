@@ -31,28 +31,28 @@ class ResitRequestController extends Controller
     //show the admission request form
     public function view($id)
     {
-        $admissionRequest = AdmissionRequest::findOrFail($id);
-        return view('Admin.resitform_view', compact('admissionRequest')); // balde file
+        $resitRequests = ResitRequest::findOrFail($id);
+        return view('Admin.resitform_view', compact('resitRequests')); // balde file
     }
 
     // Update the status of an admission request
 
-    public function AcceptAdmissionRequest(Request $request, $id)
+    public function AcceptResitRequest(Request $request, $id)
     {
-        $admissionRequest = AdmissionRequest::findOrFail($id);
-        $admissionRequest->status = "Accepted";
-        $admissionRequest->save();
+        $resitRequests = ResitRequest::findOrFail($id);
+        $resitRequests->status = "Accepted";
+        $resitRequests->save();
 
         return redirect()->route('resit.index')->with('success', 'Admission request Accepted.');
     }
 
 
     // Update the status of a re-sit request
-    public function DeclineAdmissionRequest(Request $request, $id)
+    public function DeclineResitRequest(Request $request, $id)
     {
-        $admissionRequest = AdmissionRequest::findOrFail($id);
-        $admissionRequest->status = "Declined";
-        $admissionRequest->save();
+        $resitRequests = ResitRequest::findOrFail($id);
+        $resitRequests->status = "Declined";
+        $resitRequests->save();
 
         return redirect()->route('resit.index')->with('success', 'Admission request Declined.');
     }

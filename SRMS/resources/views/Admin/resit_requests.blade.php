@@ -370,11 +370,11 @@
                             <td>{{ $resitRequest->student_id }}</td>
                             <td><a href ="{{ route('resit.view', $resitRequest->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
 
-                        <form  action="{{ route('resit.AcceptAdmissionRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
+                        <form  action="{{ route('resit.AcceptResitRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
                           @csrf  
                           <button type="submit" class="btn btn-primary btn-rounded btn-fw">Accepted</button>
                         </form>
-                        <form  action="{{ route('resit.DeclineAdmissionRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
+                        <form  action="{{ route('resit.DeclineResitRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
                           @csrf  
                           <button type="submit" class="btn btn-primary btn-rounded btn-fw">Declined</button>
                         </form>      

@@ -96,9 +96,9 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
     // Resit request routes
         Route::get('resit-requests', [ResitRequestController::class, 'index'])->name('resit.index');
-        Route::get('resit-requests/{id}', [AdmissionRequestController::class, 'view'])->name('resit.view');
-        Route::post('resit-requests/{id}/DeclineAdmissionRequest', [AdmissionRequestController::class, 'DeclineAdmissionRequest'])->name('resit.DeclineAdmissionRequest');
-        Route::post('resit-requests/{id}/AcceptAdmissionRequest', [AdmissionRequestController::class, 'AcceptAdmissionRequest'])->name('resit.AcceptAdmissionRequest');
+        Route::get('resit-requests/{id}', [ResitRequestController::class, 'view'])->name('resit.view');
+        Route::post('resit-requests/{id}/DeclineResitRequest', [ResitRequestController::class, 'DeclineResitRequest'])->name('resit.DeclineResitRequest');
+        Route::post('resit-requests/{id}/AcceptResitRequest', [ResitRequestController::class, 'AcceptResitRequest'])->name('resit.AcceptResitRequest');
         Route::post('resit-requests/{id}/update-status', [ResitRequestController::class, 'updateStatus'])->name('resit.update-status');
         Route::delete('resit-requests/{id}', [ResitRequestController::class, 'destroy'])->name('resit-requests.destroy');
 
