@@ -23,6 +23,52 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+
+    <!-- <style>
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 30%;
+            margin-right: 10px;
+            text-align: right;
+        }
+        .form-group input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style> -->
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -362,6 +408,30 @@
                       </div>
                     </div> -->
                   </div>
+<!-- 
+                  <div class="container">
+        <h1>Get Student Marks</h1>
+        <form id="marksForm">
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" required>
+            </div>
+            <div class="form-group">
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" name="degree" required>
+            </div>
+            <div class="form-group">
+                <label for="semester">Semester:</label>
+                <input type="text" id="semester" name="semester" required>
+            </div>
+            <button type="submit">Get Marks</button>
+        </form>
+    </div> -->
+
+    
+
+    
+
                   <div class="tab-content tab-content-basic">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                       <div class="row">

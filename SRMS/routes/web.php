@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+// use App\Http\Controllers\StudentController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -79,7 +82,13 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
     Route::get('/exam-request', function () {
         return view('Student.exam-request');
     })->name('student.exam-request');
+
+    
+
+
 });
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+// Route::post('/get-student-marks', [StudentController::class, 'getStudentMarks'])->name('getStudentMarks');
 
