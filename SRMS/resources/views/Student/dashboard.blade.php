@@ -66,57 +66,13 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown d-none d-lg-block">
-              <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-                <a class="dropdown-item py-3">
-                  <p class="mb-0 fw-medium float-start">Select category</p>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">Bootstrap Bundle </p>
-                    <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">Angular Bundle</p>
-                    <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">VUE Bundle</p>
-                    <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">React Bundle</p>
-                    <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item d-none d-lg-block">
-              <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                <span class="input-group-addon input-group-prepend border-right">
-                  <span class="icon-calendar input-group-text calendar-icon"></span>
-                </span>
-                <input type="text" class="form-control">
-              </div>
-            </li>
-            <li class="nav-item">
-              <form class="search-form" action="#">
-                <i class="icon-search"></i>
-                <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-              </form>
-            </li> 
+            
+            
+            
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                 <i class="icon-bell"></i>
@@ -156,45 +112,7 @@
                 </a>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="icon-mail icon-lg"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
-                <a class="dropdown-item py-3">
-                  <p class="mb-0 fw-medium float-start">You have 7 unread mails </p>
-                  <span class="badge badge-pill badge-primary float-end">View all</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">Marian Garner </p>
-                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">David Grey </p>
-                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis fw-medium text-dark">Travis Jenkins </p>
-                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                  </div>
-                </a>
-              </div>
-            </li> 
+            
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
               <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="img-xs rounded-circle" src="{{ asset('assets/images/faces/face8.jpg' )}}" alt="Profile image"> </a>
@@ -249,53 +167,125 @@
             </li> 
           </ul>
         </nav>
-
         @extends('layouts.app')
 
 @section('content')
 
-
-    <div class="row mt-4">
-        <!-- Upcoming Exam Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Upcoming Exam</h4>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Side Sections -->
+            <div class="col-md-8 d-flex flex-column">
+                <!-- Course Overview Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Recently Accessed Courses</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Introduction to Programming</span>
+                                <span class="badge bg-success">Accessed on: September 10, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Advanced Data Structures</span>
+                                <span class="badge bg-info">Accessed on: September 5, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Database Management Systems</span>
+                                <span class="badge bg-warning">Accessed on: September 1, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Web Development Fundamentals</span>
+                                <span class="badge bg-danger">Accessed on: August 28, 2024</span>
+                            </li>
+                        </ul>
+                        <div class="chart-container mt-4">
+                            <canvas id="courseOverviewLineChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p>There are no upcoming exams</p>
-                    <a href="{{ url('/calendar') }}">Go to calendar</a>
+
+                <!-- Site Announcements Section -->
+                <div class="card flex-fill mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Site Announcements</h5>
+                        <div class="announcement">
+                            <p><strong>REVISED RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES (DIPLOMA/CERTIFICATE PROGRAMMES)</strong></p>
+                            <p>by <strong>Lakmini Chamalika</strong> - Monday, 2 November 2023, 4:50 PM</p>
+                            <p><strong>DATE:</strong> 27.09.2022</p>
+                            <p><strong>TO:</strong> DIPLOMA/CERTIFICATE PROGRAMME STUDENTS (PEARSON ASSURED/LOCAL)</p>
+                            <p><strong>FROM:</strong> REGISTRAR</p>
+                            <p><strong>THROUGH:</strong> MANAGEMENT OF SAEGIS CAMPUS</p>
+                            <p><strong>SUBJECT:</strong> RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Calendar Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Calendar</h4>
+            <!-- Right Side Sections -->
+            <div class="col-md-4">
+                <!-- Upcoming Exam Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Upcoming Exam</h5>
+                        <p>There are no upcoming exams</p>
+                        <a href="{{ url('/calendar') }}" class="btn btn-primary">Go to calendar</a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <img src="{{ asset('images/calendar.png') }}" alt="Calendar">
-                </div>
-            </div>
-        </div>
 
-        <!-- Site Announcements Section -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Site Announcements</h4>
+                <!-- Recent Activity Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Recent Activity</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Assignment Submission: Web Development</span>
+                                <span class="badge bg-info">September 12, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Discussion Post: Data Structures</span>
+                                <span class="badge bg-success">September 10, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Course Enrollment: Advanced Databases</span>
+                                <span class="badge bg-warning">September 5, 2024</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>Assignment Feedback: Introduction to Programming</span>
+                                <span class="badge bg-danger">September 2, 2024</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="announcement">
-                        <p><strong>REVISED RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES (DIPLOMA/CERTIFICATE PROGRAMMES)</strong></p>
-                        <p>by <strong>Lakmini Chamalika</strong> - Monday, 2 November 2023, 4:50 PM</p>
-                        <p><strong>DATE:</strong> 27.09.2022</p>
-                        <p><strong>TO:</strong> DIPLOMA/CERTIFICATE PROGRAMME STUDENTS (PEARSON ASSURED/LOCAL)</p>
-                        <p><strong>FROM:</strong> REGISTRAR</p>
-                        <p><strong>THROUGH:</strong> MANAGEMENT OF SAEGIS CAMPUS</p>
-                        <p><strong>SUBJECT:</strong> RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES</p>
+
+                <!-- Student Evaluation Chart Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Student Evaluation</h5>
+                        <canvas id="studentEvaluationChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Online Users Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Online Users</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>User 1</span>
+                                <span class="badge bg-success">Online</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>User 2</span>
+                                <span class="badge bg-success">Online</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>User 3</span>
+                                <span class="badge bg-success">Online</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>User 4</span>
+                                <span class="badge bg-success">Online</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -304,47 +294,142 @@
 
     <!-- Footer -->
     <div class="row mt-4">
-        <div class="col-md-12 text-right">
+        <div class="col-md-12 text-left">
             @if(Auth::check())
-                <p>You are logged in as {{ Auth::user()->name }}</p>
+                <p>You are logged in as <strong>{{ Auth::user()->name }}</strong></p>
             @else
-                <p>You are not logged in. <a href="{{ route('login') }}">Login</a></p>
+                <p>You are not logged in. <a href="{{ route('login') }}" class="btn btn-outline-primary">Login</a></p>
             @endif
         </div>
     </div>
-</div>
+
+    <!-- Chart.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Course Overview Line Chart
+            var ctx1 = document.getElementById('courseOverviewLineChart').getContext('2d');
+            var courseOverviewLineChart = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+                    datasets: [{
+                        label: 'Course Access Frequency',
+                        data: [12, 15, 8, 20, 18],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ddd'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ddd'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Student Evaluation Chart
+            var ctx2 = document.getElementById('studentEvaluationChart').getContext('2d');
+            var studentEvaluationChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Student A', 'Student B', 'Student C', 'Student D', 'Student E'],
+                    datasets: [{
+                        label: 'Evaluation Score',
+                        data: [85, 90, 78, 88, 95],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ddd'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ddd'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
 @endsection
 
-        <!-- partial -->
-        <!-- <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="home-tab">
-                  <div class="d-sm-flex align-items-center justify-content-between border-bottom"> -->
 
-                    <!-- <ul class="nav nav-tabs" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Demographics</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
-                      </li>
-                    </ul> 
-                    <div>
-                      <div class="btn-wrapper">
-                        <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
-                        <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                        <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                      </div>
-                    </div>
-                  </div> -->
+
+
+
+
+
 
 
 
