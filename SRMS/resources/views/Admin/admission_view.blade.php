@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png' )}}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -225,25 +225,35 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('student.dashboard') }}">
+              <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('student.timetable') }}">
+              <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Timetables</span>
+                <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('student.results') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Results</span>
+                <span class="menu-title">Exam Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('student.exam-request') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('result_management') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Exam Request</span>
+                <span class="menu-title">Result Management</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -332,79 +342,111 @@
               </a>
             </li> -->
           </ul>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-          <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
-          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
-            <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+</nav>
+                            <!-- partial -->
+<div class="main-panel d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="content-wrapper w-50">
+    <div class="row justify-content-center">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center">Examination Admission Request</h4>
+            <p class="card-description">Submit your request for examination admission if you meet the eligibility criteria.</p>
+            <form class="forms-sample" >
+            @csrf
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" name= 'student_id'  value= "{{ $admissionRequest->student_id }}" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+              </div>
+              <!-- Exam ID -->
+              <div class="form-group">
+                <label for="studentID">Exam ID</label>
+                <input type="text" name= 'exam_id' value= "{{ $admissionRequest->exam_id }}" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+              </div>
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" name= 'student_name' value= "{{ $admissionRequest->Student_name }}" id="fullName" placeholder="Enter Name" required>
+              </div>
+              <!-- Name with Initials -->
+              <div class="form-group">
+                <label for="NamewithInitials">Name with Initials</label>
+                <input type="text" class="form-control" name= 'name' value= "{{ $admissionRequest->name}}" id="NamewithInitials" placeholder="Name with Initials" required>
+              </div>
+              <!-- Contact Number -->
+              <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" class="form-control" name= 'contactno' value= "{{ $admissionRequest->contact}}" id="contactNumber" placeholder="Enter Contact Number" required>
+              </div>
+              <!-- Attempt -->
+              <div class="form-group">
+                <label for="attempt">Attempt</label>
+                <select class="form-control" id="attempt" required>
+                  <option value="" disabled selected>Select Attempt</option>
+                  <option value="first-time">First Time</option>
+                  <option value="resit">Resit</option>
+                </select>
+              </div>
+              <!-- Course Codes -->
+              <div class="form-group">
+                <label for="courseCodes">Course Code</label>
+                <div id="courseCodes">
+                  <input type="text" class="form-control mb-2" name="courseCode" placeholder="Enter Course Code" required>
                 </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseCodeField()">Add Another Course Code</button>
               </div>
+              <!-- Course Titles -->
+              <div class="form-group">
+                <label for="courseTitles">Course Title</label>
+                <div id="courseTitles">
+                  <input type="text" class="form-control mb-2" name="courseTitle" placeholder="Enter Course Title" required>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseTitleField()">Add Another Course Title</button>
               </div>
+              <!-- Note -->
+              <div class="form-group">
+                <p class="text-muted">Please add the course code and course title that apply for the admission of the examination.</p>
               </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I hereby declare that the above information is true to the best of my knowledge and belies.
+                </label>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </div>
+            </form>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
-          </footer> -->
-          <!-- partial -->
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    function addCourseCodeField() {
+    var courseCodeField = document.createElement('input');
+     courseCodeField.type = 'text';
+     courseCodeField.className = 'form-control mb-2';
+     courseCodeField.name = 'courseCode';
+     courseCodeField.placeholder = 'Enter Course Code';
+     courseCodeField.required = true;
+     document.getElementById('courseCodes').appendChild(courseCodeField);
+         }
+
+    function addCourseTitleField() {
+    var courseTitleField = document.createElement('input');
+     courseTitleField.type = 'text';
+     courseTitleField.className = 'form-control mb-2';
+     courseTitleField.name = 'courseTitle';
+     courseTitleField.placeholder = 'Enter Course Title';
+     courseTitleField.required = true;
+     document.getElementById('courseTitles').appendChild(courseTitleField);
+          }
+</script>                
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->

@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png' )}}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -225,25 +225,35 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('student.dashboard') }}">
+              <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('student.timetable') }}">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Timetables</span>
+                <span class="menu-title">User Management</span>
               </a>
-            </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('student.results') }}">
+            </li><li class="nav-item active"> 
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Results</span>
+                <span class="menu-title">Exam Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('student.exam-request') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('result_management') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Exam Request</span>
+                <span class="menu-title">Result Management</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -336,56 +346,43 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
-          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
+         
             <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
+                      <p class="card-description"> Add class <code>.table-hover</code>
+                      </p>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
+                            <th>Exam ID</th>
+                            <th>Student ID</th> 
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($resitRequests as $resitRequest)
                           <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
+                            <td>{{ $resitRequest->exam_id }}</td>
+                            <td>{{ $resitRequest->student_id }}</td>
+                            <td><a href ="{{ route('resit.view', $resitRequest->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+
+                        <form  action="{{ route('resit.AcceptResitRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
+                          @csrf  
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Accepted</button>
+                        </form>
+                        <form  action="{{ route('resit.DeclineResitRequest', $resitRequest->id) }}" method="POST" style="display: inline;">
+                          @csrf  
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Declined</button>
+                        </form>      
+                            </td>    
                           </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          
+                          @endforeach
+                     
                         </tbody>
                       </table>
                     </div>
@@ -394,7 +391,7 @@
               </div>
               </div>
               </div>
-          </div>
+            </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <!-- <footer class="footer">

@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png' )}}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -224,21 +224,21 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item">
+          <li class="nav-item active">
               <a class="nav-link" href="{{ route('student.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('student.timetable') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Timetables</span>
               </a>
-            </li><li class="nav-item"> 
+            </li><li class="nav-item">
               <a class="nav-link" href="{{ route('student.results') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Results</span>
+                <span class="menu-title">Results </span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('student.exam-request') }}">
@@ -335,76 +335,134 @@
         </nav>
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
-          <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
-          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
-            <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Resit Exam Request Application</h4>
+            <p class="card-description">Please fill out the form below to request a resit exam.</p>
+            <form class="forms-sample" action ="{{route('resit-requests.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+                
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" class="form-control" name= 'student_id' id="studentID" placeholder="Student ID" required>
               </div>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" name= 'student_name' id="exampleInputName1" placeholder="Name" required>
               </div>
+              <!-- Exam ID -->
+              <div class="form-group">
+                <label for="studentID">Exam ID</label>
+                <input type="text" name= 'exam_id' class="form-control" id="studentID" placeholder="Enter Student ID" required>
               </div>
+              <!-- Programme -->
+              <div class="form-group">
+                <label for="programme">Programme</label>
+                <input type="text" class="form-control" name= 'programme' id="programme" placeholder="Programme" required>
+              </div>
+              <!-- Batch Number -->
+              <div class="form-group">
+                <label for="batchnumber">Batch Number</label>
+                <input type="text" class="form-control" name= 'batch_no' id="batchnumber" placeholder="Batch Number" required>
+              </div>
+              <!-- Semester -->
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <input type="text" class="form-control" name= 'semester' id="semester" placeholder="Semester" required>
+              </div>
+              <!-- Year -->
+              <div class="form-group">
+                <label for="year">Year</label>
+                <select class="form-control" id="year" required>
+                  <option value="">Select Year</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <!-- Add more years as needed -->
+                </select>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <label for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" name= 'email' id="exampleInputEmail3" placeholder="Email" required>
+              </div>
+              <!-- Module Code -->
+              <div class="form-group">
+                <label for="moduleCode">Module Code</label>
+                <input type="text" class="form-control" name= 'module_code' id="moduleCode" placeholder="Module Code" required>
+              </div>
+              <!-- Preferred Date for Resit -->
+              <!-- <div class="form-group">
+                <label for="preferredDate">Preferred Date for Resit</label>
+                <input type="date" class="form-control" id="preferredDate" required>
+              </div> -->
+              <!-- Type of Resit -->
+              <div class="form-group">
+                <label for="rTypeofRequest">Type of Request</label>
+                <select class="form-control" id="rTypeofRequest" name="TypeofRequest" required>
+                  <option value="">Select Resit Type</option>
+                  <option value="resit">Resit</option>
+                  <option value="retake">Retake</option>
+                  <option value="re-correction">Re-Correction</option>
+                </select>
+              </div>
+              <!-- Attach Payment Slip -->
+              <div class="form-group">
+                <label for="paymentSlip">Payment Slip</label>
+                <p>Please attach a copy of the payment slip.</p>
+                <input type="file" class="form-control" id="paymentSlip" required>
+              </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I confirm that the information provided is accurate.
+                </label>
+              </div>
+              <!-- Important Note -->
+              <div class="form-group">
+                <p class="text-danger font-weight-bold mt-3">* Important Note: Students should submit the Request Form to the Examination Department within three weeks after the date of issue of Semester Examination Results.</p>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </div>
+            </form>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
-          </footer> -->
-          <!-- partial -->
         </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    function addCourseCodeField() {
+    var courseCodeField = document.createElement('input');
+     courseCodeField.type = 'text';
+     courseCodeField.className = 'form-control mb-2';
+     courseCodeField.name = 'courseCode';
+     courseCodeField.placeholder = 'Enter Course Code';
+     courseCodeField.required = true;
+     document.getElementById('courseCodes').appendChild(courseCodeField);
+         }
+
+    function addCourseTitleField() {
+    var courseTitleField = document.createElement('input');
+     courseTitleField.type = 'text';
+     courseTitleField.className = 'form-control mb-2';
+     courseTitleField.name = 'courseTitle';
+     courseTitleField.placeholder = 'Enter Course Title';
+     courseTitleField.required = true;
+     document.getElementById('courseTitles').appendChild(courseTitleField);
+          }
+</script>                
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->

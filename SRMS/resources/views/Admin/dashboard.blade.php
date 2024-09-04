@@ -236,9 +236,19 @@
                 <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('result_management') }}">

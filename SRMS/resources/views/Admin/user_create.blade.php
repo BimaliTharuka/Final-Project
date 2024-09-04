@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png' )}}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -225,25 +225,35 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('student.dashboard') }}">
+              <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{{ route('student.timetable') }}">
+              <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Timetables</span>
+                <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('student.results') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Results</span>
+                <span class="menu-title">Exam Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('student.exam-request') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('result_management') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Exam Request</span>
+                <span class="menu-title">Result Management</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -333,76 +343,85 @@
             </li> -->
           </ul>
         </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-          <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
-          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
-            <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <h4 class="card-title">Add New user Form</h4>
+                    <p class="card-description"> User Details </p>
+                    <form class="forms-sample" action ="{{route('user_store')}}" method="post" enctype="multipart/form-data">
+                      @csrf
+                      <div class="form-group">
+                        <label for="exampleInputName1">Student ID</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="ID">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" name ="email" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Role</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
+                          <option>Role</option>
+                          <option>Admin</option>
+                          <option>Lecturer</option>
+                          <option>Student</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-select" id="exampleSelectGender" name ="gender">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                      <div class="image-upload">
+                      <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
+                          
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputMobile">Mobile</label>
+                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <a href="{{ route('user_management') }}"><button class="btn btn-light">Back</button></a>
+                    </form>
                   </div>
                 </div>
               </div>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+          <!-- <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a> -->
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  
+                </div>
               </div>
               </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
+         
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
             </div>
-          </footer> -->
+          </footer>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

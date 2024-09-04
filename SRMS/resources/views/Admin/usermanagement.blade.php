@@ -236,9 +236,19 @@
                 <span class="menu-title">User Management</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('result_management') }}">
@@ -333,57 +343,51 @@
             </li> -->
           </ul>
         </nav>
+        
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+          <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">ADD New User</button></a>
             <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-                    <p class="card-description"> Add class <code>.table</code>
-                    </p>
+                    <h4 class="card-title">User Details</h4>
+                    <p class="card-description"> Add users</p>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
-                            <th>Status</th>
+                          <th>Student ID</th>  
+                          <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                            <!-- <th>Created</th>
+                            <th>Status</th> -->
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          
+                        @foreach($users as $user)
+                      <tr>
+                        <td>{{ $user->studentId }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->role }}</td>
+                        <td><a href ="{{ route('user_edit', $user->id) }}"><button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button></a>
+                        <a href ="{{ route('user_show', $user->id) }}"><button type="button" class="btn btn-primary btn-rounded btn-fw">Show</button></a>
+                        <!-- <a href ="{{ route('user_show', $user->id) }}"><button type="button" class="btn btn-primary btn-rounded btn-fw">Delete</button></a> -->
+                        <form  action="{{ route('user_delete', $user->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
+                      </td>
+                        
+                      </tr>
+                        @endforeach
+                            
                         </tbody>
                       </table>
                     </div>
@@ -392,14 +396,12 @@
               </div>
               </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
+
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
             </div>
-          </footer> -->
+          </footer>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
