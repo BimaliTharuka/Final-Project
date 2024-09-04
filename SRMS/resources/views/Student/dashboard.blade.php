@@ -333,7 +333,7 @@
             </li> -->
           </ul>
         </nav>
-        
+
         <!-- partial -->
         <!-- <div class="main-panel">
           <div class="content-wrapper">
@@ -368,7 +368,7 @@
                   @extends('layouts.app')
 
 @section('content')
-<div class="container mt-0 pt-0">
+<!-- <div class="container mt-0 pt-0">
     <div class="row">
         <div class="col-md-12 text-center">
             <h1>Student Result Management System - Saegis Campus</h1>
@@ -376,7 +376,7 @@
             <h3>Saegis Campus</h3>
             <p>Student Result Management System</p>
         </div>
-    </div>
+    </div> -->
 
     <div class="row mt-4">
         <!-- Upcoming Exam Section -->
@@ -1152,6 +1152,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+     
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     <!-- endinject -->
