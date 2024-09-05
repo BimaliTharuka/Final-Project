@@ -224,8 +224,8 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('admin.dashboard') }}">
+          <li class="nav-item active">
+              <a class="nav-link" href="{{ route('student.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -353,92 +353,136 @@
             </li> -->
           </ul>
         </nav>
-          <div class="col-10 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">StudentId</label>
-                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1"  placeholder="Name" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" placeholder="Name" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" value= "{{ $users->email }}"  class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
-                      </div>
-                      <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control"  id="exampleInputPassword4" placeholder="Password" name="password">
-                      </div> -->
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" value= "{{ $users->role }}" readonly>
-                          <option>{{ $users->role }}</option>
-                          <option>Admin</option>
-                          <option>Lecturer</option>
-                          <option>Student</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" value= "{{ $users->gender }}" readonly>
-                        <option>{{ $users->gender }}</option>
-                        <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <img src= "{{ Storage::url($users->user_image) }}" >
-                        <!-- <label>Image upload</label> -->
-                        <!-- <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" readonly>
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
-                        </div> -->
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value= "{{ $users->phone_number}}" readonly>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" value="{{ $users->address }}" readonly>{{ $users->address }}</textarea>
-                      </div>
-                      <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
-                      <!-- <a href="{{ route('user_management') }}"><button class="btn btn-light">Cancel</button></a> -->
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
-
-                    </form>
-                  </div>
-                </div>
-              </div>
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
-          <!-- <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a> -->
-            <div class="row">
-              <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  
-                </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Resit Exam Request Application</h4>
+            <p class="card-description">Please fill out the form below to request a resit exam.</p>
+            <form class="forms-sample">
+            @csrf
+                
+              <!-- Student ID -->
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" class="form-control" value= "{{ $resitRequests->student_id }}" name= 'student_id' id="studentID" placeholder="Student ID" required>
               </div>
+              <!-- Name -->
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" value= "{{ $resitRequests->student_name }}" name= 'student_name' id="exampleInputName1" placeholder="Name" required>
               </div>
+              <!-- Exam ID -->
+              <div class="form-group">
+                <label for="studentID">Exam ID</label>
+                <input type="text" name= 'exam_id' value= "{{ $resitRequests->exam_id }}" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+              </div>
+              <!-- Programme -->
+              <div class="form-group">
+                <label for="programme">Programme</label>
+                <input type="text" class="form-control" name= 'programme' id="programme" placeholder="Programme" required>
+              </div>
+              <!-- Batch Number -->
+              <div class="form-group">
+                <label for="batchnumber">Batch Number</label>
+                <input type="text" class="form-control" name= 'batch_no' id="batchnumber" placeholder="Batch Number" required>
+              </div>
+              <!-- Semester -->
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <input type="text" class="form-control" name= 'semester' id="semester" placeholder="Semester" required>
+              </div>
+              <!-- Year -->
+              <div class="form-group">
+                <label for="year">Year</label>
+                <select class="form-control" id="year" required>
+                  <option value="">Select Year</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <!-- Add more years as needed -->
+                </select>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <label for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" name= 'email' id="exampleInputEmail3" placeholder="Email" required>
+              </div>
+              <!-- Module Code -->
+              <div class="form-group">
+                <label for="moduleCode">Module Code</label>
+                <input type="text" class="form-control" name= 'module_code' id="moduleCode" placeholder="Module Code" required>
+              </div>
+              <!-- Preferred Date for Resit -->
+              <!-- <div class="form-group">
+                <label for="preferredDate">Preferred Date for Resit</label>
+                <input type="date" class="form-control" id="preferredDate" required>
+              </div> -->
+              <!-- Type of Resit -->
+              <div class="form-group">
+                <label for="rTypeofRequest">Type of Request</label>
+                <select class="form-control" id="rTypeofRequest" name="TypeofRequest" required>
+                  <option value="">Select Resit Type</option>
+                  <option value="resit">Resit</option>
+                  <option value="retake">Retake</option>
+                  <option value="re-correction">Re-Correction</option>
+                </select>
+              </div>
+              <!-- Attach Payment Slip -->
+              <div class="form-group">
+                <label for="paymentSlip">Payment Slip</label>
+                <p>Please attach a copy of the payment slip.</p>
+                <input type="file" class="form-control" id="paymentSlip" required>
+              </div>
+              <!-- Confirmation Checkbox -->
+              <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" required> I confirm that the information provided is accurate.
+                </label>
+              </div>
+              <!-- Important Note -->
+              <div class="form-group">
+                <p class="text-danger font-weight-bold mt-3">* Important Note: Students should submit the Request Form to the Examination Department within three weeks after the date of issue of Semester Examination Results.</p>
+              </div>
+              <!-- Submit and Cancel Buttons -->
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <a href="{{ route('resit.index') }}" class="btn btn-light">Cancel</a>
+              </div>
+            </form>
           </div>
-         
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
-          </footer>
-          <!-- partial -->
         </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    function addCourseCodeField() {
+    var courseCodeField = document.createElement('input');
+     courseCodeField.type = 'text';
+     courseCodeField.className = 'form-control mb-2';
+     courseCodeField.name = 'courseCode';
+     courseCodeField.placeholder = 'Enter Course Code';
+     courseCodeField.required = true;
+     document.getElementById('courseCodes').appendChild(courseCodeField);
+         }
+
+    function addCourseTitleField() {
+    var courseTitleField = document.createElement('input');
+     courseTitleField.type = 'text';
+     courseTitleField.className = 'form-control mb-2';
+     courseTitleField.name = 'courseTitle';
+     courseTitleField.placeholder = 'Enter Course Title';
+     courseTitleField.required = true;
+     document.getElementById('courseTitles').appendChild(courseTitleField);
+          }
+</script>                
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->

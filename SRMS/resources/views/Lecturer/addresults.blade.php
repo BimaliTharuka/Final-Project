@@ -230,40 +230,20 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('user_management') }}">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('lecturer.attendence') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">User Management</span>
+                <span class="menu-title">Attendence</span>
               </a>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('courses.index') }}">
-                <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Manage Courses</span>
-              </a>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('batches.index') }}">
-                <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Manage Batches</span>
-              </a>
-            </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('exams.index') }}">
+            </li><li class="nav-item active"> 
+              <a class="nav-link" href="{{ route('results.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Exam Management</span>
+                <span class="menu-title">Exam Results</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('admission.index') }}">
-                <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Admission Request</span>
-              </a>
-              </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('resit.index') }}">
-                <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Resit Request</span>
-              </a>
-            </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('lecturer.others') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Result Management</span>
+                <span class="menu-title">Others</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -356,29 +336,53 @@
           <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    
+                    <h4 class="card-title">Add Results</h4>
+                    <p class="card-description">add marks </p>
+                    <form class="forms-sample" action ="{{route('results.store')}}" method="post" enctype="multipart/form-data">
+                      @csrf
+                  
                       <div class="form-group">
-                        <label for="exampleInputName1">StudentId</label>
-                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1"  placeholder="Name" readonly>
+                        <label for="exampleInputPassword4">Course</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="course_id" required>
+                        
+                          <option value="">Select Course</option>
+                            @foreach($courses as $course)
+                          <option value="{{ $course->id }}">{{ $course->description }}</option>
+                            @endforeach
+                          
+                        </select>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" placeholder="Name" readonly>
+                        <label for="exampleInputPassword4">Batch</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="batch_id" required>
+                          <option>Select Batch</option>
+                          @foreach($batches as $batch)
+                          <option value= "{{ $batch->id }}">{{ $batch->name }}</option>
+                          @endforeach
+                        </select>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" value= "{{ $users->email }}"  class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
+                        <label for="exampleInputPassword4">Result Type</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="type_id" required>
+                          <option>Result Type</option>
+                          <option value ="1" >Assignments</option>
+                          <option value ="2">Mid Exam</option>
+                          <option value ="3">End Exam</option>
+                          
+                        </select>
                       </div>
+                    
                       <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control"  id="exampleInputPassword4" placeholder="Password" name="password">
+                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
                       </div> -->
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" value= "{{ $users->role }}" readonly>
-                          <option>{{ $users->role }}</option>
+                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
+                          <option>Role</option>
                           <option>Admin</option>
                           <option>Lecturer</option>
                           <option>Student</option>
@@ -386,35 +390,31 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" value= "{{ $users->gender }}" readonly>
-                        <option>{{ $users->gender }}</option>
-                        <option>Male</option>
+                        <select class="form-select" id="exampleSelectGender" name ="gender">
+                          <option>Male</option>
                           <option>Female</option>
                         </select>
-                      </div>
-                      <div class="form-group">
-                        <img src= "{{ Storage::url($users->user_image) }}" >
-                        <!-- <label>Image upload</label> -->
-                        <!-- <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" readonly>
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
-                        </div> -->
+                      </div> -->
+                      <!-- <div class="image-upload">
+                      <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
+                          
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value= "{{ $users->phone_number}}" readonly>
+                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
                         </div>
                         <div class="form-group">
                         <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" value="{{ $users->address }}" readonly>{{ $users->address }}</textarea>
-                      </div>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
+                      </div> -->
                       <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
-                      <!-- <a href="{{ route('user_management') }}"><button class="btn btn-light">Cancel</button></a> -->
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
-
+                      <input type="file" name="file">
+                      <button type="submit" class="btn btn-primary me-2">Upload Results</button>
+                      <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>

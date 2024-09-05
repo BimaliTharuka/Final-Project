@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BatchController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
 
@@ -105,6 +108,26 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::post('resit-requests/{id}/update-status', [ResitRequestController::class, 'updateStatus'])->name('resit.update-status');
         Route::delete('resit-requests/{id}', [ResitRequestController::class, 'destroy'])->name('resit-requests.destroy');
 
+
+    // Courses Routes
+        Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+        Route::get('courses/create', [CourseController::class, 'create'])->name('courses.create');
+        Route::post('courses', [CourseController::class, 'store'])->name('courses.store');
+        Route::get('courses/{id}', [CourseController::class, 'show'])->name('courses.show');
+        Route::get('courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
+        Route::put('courses/{id}', [CourseController::class, 'update'])->name('courses.update');
+        Route::delete('courses/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');
+
+    // Batches Routes
+        Route::get('batches', [BatchController::class, 'index'])->name('batches.index');
+        Route::get('batches/create', [BatchController::class, 'create'])->name('batches.create');
+        Route::post('batches', [BatchController::class, 'store'])->name('batches.store');
+        Route::get('batches/{id}', [BatchController::class, 'show'])->name('batches.show');
+        Route::get('batches/{id}/edit', [BatchController::class, 'edit'])->name('batches.edit');
+        Route::put('batches/{id}', [BatchController::class, 'update'])->name('batches.update');
+        Route::delete('batches/{id}', [BatchController::class, 'destroy'])->name('batches.destroy');
+
+
 });
 
 
@@ -120,15 +143,20 @@ Route::prefix('lecturer')->middleware(['auth', 'role:Lecturer'])->group(function
         return view('Lecturer.attendence');
     })->name('lecturer.attendence');
     
-    Route::get('/exam_results', function () {
-        return view('Lecturer.exam_result');
-    })->name('lecturer.exam_result');
+    // Route::get('/exam_results', function () {
+    //     return view('Lecturer.exam_result');
+    // })->name('lecturer.exam_result');
     
     Route::get('/others', function () {
         return view('Lecturer.others');
     })->name('lecturer.others');
     
-    
+    Route::get('results', [ResultController::class, 'index'])->name('results.index');
+    Route::get('results/create', [ResultController::class, 'create'])->name('results.create');
+    Route::post('results', [ResultController::class, 'store'])->name('results.store');
+    Route::get('results/{id}', [ResultController::class, 'show'])->name('results.show');
+    Route::delete('results/{id}', [ResultController::class, 'destroy'])->name('results.destroy');
+
 });
 
 // Student Routes

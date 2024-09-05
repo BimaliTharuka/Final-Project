@@ -356,29 +356,32 @@
           <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
+                    
+                    <h4 class="card-title">Create New batches</h4>
+                    <p class="card-description"> Batch create form </p>
+                    <form class="forms-sample" action ="{{route('batches.store')}}" method="post" enctype="multipart/form-data">
+                      @csrf
+                      
                       <div class="form-group">
-                        <label for="exampleInputName1">StudentId</label>
-                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1"  placeholder="Name" readonly>
+                        <label for="exampleInputName1">Batch Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" placeholder="Name" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" value= "{{ $users->email }}"  class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
+                        <label for="exampleInputEmail3">Course ID</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" name ="course_id" placeholder="Course id">
                       </div>
                       <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control"  id="exampleInputPassword4" placeholder="Password" name="password">
+                        <label for="exampleInputName1">Course</label>
+                        <input type="text" class="form-control" id="exampleInputName1" name ="course" placeholder="Name">
                       </div> -->
-                      <div class="form-group">
+                      <!-- <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
+                      </div> -->
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" value= "{{ $users->role }}" readonly>
-                          <option>{{ $users->role }}</option>
+                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
+                          <option>Role</option>
                           <option>Admin</option>
                           <option>Lecturer</option>
                           <option>Student</option>
@@ -386,34 +389,29 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" value= "{{ $users->gender }}" readonly>
-                        <option>{{ $users->gender }}</option>
-                        <option>Male</option>
+                        <select class="form-select" id="exampleSelectGender" name ="gender">
+                          <option>Male</option>
                           <option>Female</option>
                         </select>
-                      </div>
-                      <div class="form-group">
-                        <img src= "{{ Storage::url($users->user_image) }}" >
-                        <!-- <label>Image upload</label> -->
-                        <!-- <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" readonly>
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
-                        </div> -->
+                      </div> -->
+                      <!-- <div class="image-upload">
+                      <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
+                          
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value= "{{ $users->phone_number}}" readonly>
+                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
                         </div>
                         <div class="form-group">
                         <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" value="{{ $users->address }}" readonly>{{ $users->address }}</textarea>
-                      </div>
-                      <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
-                      <!-- <a href="{{ route('user_management') }}"><button class="btn btn-light">Cancel</button></a> -->
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
+                      </div> -->
+                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <a href="{{ route('batches.index') }}" class="btn btn-light">Cancel</a>
 
                     </form>
                   </div>

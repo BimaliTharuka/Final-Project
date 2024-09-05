@@ -235,6 +235,16 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
               </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('courses.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Courses</span>
+              </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('batches.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Batches</span>
+              </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
@@ -399,7 +409,7 @@
                         <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <a href="{{ route('user_management') }}"><button class="btn btn-light">Back</button></a>
+                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
                     </form>
                   </div>
                 </div>

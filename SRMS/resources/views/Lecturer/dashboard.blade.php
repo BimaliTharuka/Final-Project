@@ -236,7 +236,7 @@
                 <span class="menu-title">Attendence</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.exam_result') }}">
+              <a class="nav-link" href="{{ route('results.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Results </span>
               </a>

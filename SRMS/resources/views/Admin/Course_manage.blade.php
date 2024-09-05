@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -245,7 +245,7 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
-            </li><li class="nav-item"> 
+            </li><li class="nav-item active"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
@@ -353,90 +353,61 @@
             </li> -->
           </ul>
         </nav>
-          <div class="col-10 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">StudentId</label>
-                        <input type="text" value= "{{ $users->studentId }}" class="form-control" id="exampleInputName1"  placeholder="Name" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" value= "{{ $users->name }}" class="form-control" id="exampleInputName1" placeholder="Name" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" value= "{{ $users->email }}"  class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
-                      </div>
-                      <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control"  id="exampleInputPassword4" placeholder="Password" name="password">
-                      </div> -->
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" value= "{{ $users->role }}" readonly>
-                          <option>{{ $users->role }}</option>
-                          <option>Admin</option>
-                          <option>Lecturer</option>
-                          <option>Student</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" value= "{{ $users->gender }}" readonly>
-                        <option>{{ $users->gender }}</option>
-                        <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <img src= "{{ Storage::url($users->user_image) }}" >
-                        <!-- <label>Image upload</label> -->
-                        <!-- <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" readonly>
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
-                        </div> -->
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value= "{{ $users->phone_number}}" readonly>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" value="{{ $users->address }}" readonly>{{ $users->address }}</textarea>
-                      </div>
-                      <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
-                      <!-- <a href="{{ route('user_management') }}"><button class="btn btn-light">Cancel</button></a> -->
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
-
-                    </form>
-                  </div>
-                </div>
-              </div>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <!-- <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a> -->
+          <a href ="{{ route('courses.create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  
+                  <div class="card-body">
+                    <h4 class="card-title">Courses</h4>
+                      <p class="card-description"> Add courses here
+                      </p>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Course name</th>
+                            <th>Description</th>       
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($courses as $course)
+                          <tr>
+                            <td>{{ $course->name }}</td>
+                            <td>{{ $course->description }}</td>
+                            <td> <a href ="{{ route('courses.edit', $course->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button></a>
+                             <a href ="{{ route('courses.show', $course->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+                             <form  action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
+                            </td>
+                            
+                          </tr>
+                          
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
               </div>
-          </div>
-         
+              </div>
+            </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <!-- <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
             </div>
-          </footer>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

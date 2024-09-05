@@ -236,7 +236,7 @@
                 <span class="menu-title">Attendence</span>
               </a>
             </li><li class="nav-item active"> 
-              <a class="nav-link" href="{{ route('lecturer.exam_result') }}">
+              <a class="nav-link" href="{{ route('results.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Results</span>
               </a>
@@ -336,58 +336,51 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+          <a href ="{{ route('results.create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Add Results</button></a>
             <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
-
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
+                    <h4 class="card-title">Added Results</h4>
+                    <p class="card-description"> Add marks
                     </p>
                     <div class="table-responsive">
+
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Results Type</th> 
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+
+                        @foreach($results as $result)
                           <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
+                            <td>{{ $result->course_id }}</td>
+                            <td>{{ $result->batch_id }}</td>
+                            <td>{{ $result->type_id }}</td>
+                            <td> 
+                                  <a href ="{{ route('results.show', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+                                  <form  action="{{ route('results.destroy', $result->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                  <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
+                            </td>
+                            
                           </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          
+                          @endforeach
                         </tbody>
                       </table>
+
+
+
                     </div>
+                              
                   </div>
                 </div>
               </div>

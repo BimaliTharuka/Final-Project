@@ -235,6 +235,16 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
               </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('courses.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Courses</span>
+              </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('batches.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Batches</span>
+              </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
@@ -347,8 +357,8 @@
                 <div class="card">
                   <div class="card-body">
                     
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <h4 class="card-title">Create exams</h4>
+                    <p class="card-description"> exam created</p>
                     <form class="forms-sample" action ="{{route('exams.store')}}" method="post" enctype="multipart/form-data">
                       @csrf
                       
@@ -401,7 +411,8 @@
                         <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
                       </div> -->
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <a href="{{ route('batches.index') }}" class="btn btn-light">Cancel</a>
+
                     </form>
                   </div>
                 </div>

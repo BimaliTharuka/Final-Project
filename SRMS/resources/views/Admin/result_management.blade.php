@@ -235,6 +235,16 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
               </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('courses.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Courses</span>
+              </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('batches.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Batches</span>
+              </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
