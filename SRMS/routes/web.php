@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
+use App\Http\Controllers\UserProfileController;
 
 // use App\Http\Controllers\StudentController;
 
@@ -171,3 +172,15 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Route::post('/get-student-marks', [StudentController::class, 'getStudentMarks'])->name('getStudentMarks');
 
+
+
+//for admin profile edit
+Route::get('/admin/profile/edit', [UserProfileController::class, 'editAdminProfile'])->name('admin.profile.edit');
+Route::post('/admin/profile/update', [UserProfileController::class, 'updateAdminProfile'])->name('admin.profile.update');
+
+//for lecturer profile edit
+Route::get('/lecturer/profile/edit', [UserProfileController::class, 'editLecturerProfile'])->name('lecturer.profile.edit');
+Route::post('/lecturer/profile/update', [UserProfileController::class, 'updateLecturerProfile'])->name('lecturer.profile.update');
+
+// Route for student profile 
+Route::get('/student/profile', [UserProfileController::class, 'studentProfile'])->name('student.profile');
