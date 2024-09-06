@@ -16,6 +16,7 @@ class Result extends Model
     // Define the fillable fields to allow mass assignment
     protected $fillable = [
         'student_id',
+        'module_id',
         'course_id',
         'batch_id',
         'type_id',

@@ -40,6 +40,7 @@ class ResultController extends Controller
         foreach ($data as $row) {
             Result::create([
                 'course_id' => $request->course_id,
+                'module_id' => $request->module_id,
                 'batch_id' => $request->batch_id,
                 'type_id' => $request->type_id,
                 'student_id' => $row[0],

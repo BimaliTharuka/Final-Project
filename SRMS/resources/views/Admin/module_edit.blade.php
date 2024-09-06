@@ -230,20 +230,45 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.attendence') }}">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Attendence</span>
+                <span class="menu-title">User Management</span>
               </a>
-            </li><li class="nav-item active"> 
-              <a class="nav-link" href="{{ route('results.index') }}">
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('courses.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Courses</span>
+              </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('batches.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Batches</span>
+              </a>
+              </li><li class="nav-item active"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Exam Results</span>
+                <span class="menu-title">Module Management</span>
+              </a>
+            </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('exams.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Exam Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.others') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('result_management') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Others</span>
+                <span class="menu-title">Result Management</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -337,96 +362,26 @@
                 <div class="card">
                   <div class="card-body">
                     
-                    <h4 class="card-title">Add Results</h4>
-                    <p class="card-description">add marks </p>
-                    <form class="forms-sample" action ="{{route('results.store')}}" method="post" enctype="multipart/form-data">
+                    <h4 class="card-title">Create New Modules</h4>
+                    <p class="card-description"> Module create form </p>
+                    <form class="forms-sample" action ="{{route('modules.update',$module->id)}}" method="post" enctype="multipart/form-data">
                       @csrf
-                  
+                      @method('PUT')
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Course</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="course_id" required>
-                        
-                          <option value="">Select Course</option>
-                            @foreach($courses as $course)
-                          <option value="{{ $course->id }}">{{ $course->description }}</option>
-                            @endforeach
-                          
-                        </select>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Module</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="module_id" required>
-                        
-                          <option value="">Select Module</option>
-                            @foreach($modules as $module)
-                          <option value="{{ $module->id }}">{{ $module->description }}</option>
-                            @endforeach
-                          
-                        </select>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Batch</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="batch_id" required>
-                          <option>Select Batch</option>
-                          @foreach($batches as $batch)
-                          <option value= "{{ $batch->id }}">{{ $batch->name }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Result Type</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="type_id" required>
-                          <option>Result Type</option>
-                          <option value ="1" >Assignments</option>
-                          <option value ="2">Mid Exam</option>
-                          <option value ="3">End Exam</option>
-                          
-                        </select>
-                      </div>
-                    
-                      <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
-                      </div> -->
-                      <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
-                          <option>Role</option>
-                          <option>Admin</option>
-                          <option>Lecturer</option>
-                          <option>Student</option>
-                        </select>
+                        <label for="exampleInputName1">Module Name</label>
+                        <input type="text" class="form-control" value= "{{ $module->name }}" id="exampleInputName1" name ="name" placeholder="Module Name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" name ="gender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div> -->
-                      <!-- <div class="image-upload">
-                      <h6>{{__('Add user Pofile Photo')}}</h6>
-                        <input type="file" name="user_image">
-                        <div class="image-uploads">
-                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
-                          
-                        </div>
+                        <label for="exampleInputEmail3">Description</label>
+                        <input type="text" class="form-control" value= "{{ $module->description }}" id="exampleInputEmail3" name ="description" placeholder="Module Description">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
-                      </div> -->
-                      <!-- <button type="submit" class="btn btn-primary me-2">Submit</button> -->
-                      <input type="file" name="file">
-                      <button type="submit" class="btn btn-primary me-2">Upload Results</button>
-                      <button class="btn btn-light">Cancel</button>
+                        <label for="exampleInputEmail3">Course ID</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" value= "{{ $module->course_id }}" name ="course_id" placeholder="Course ID">
+                      </div>
+                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <a href="{{ route('modules.index') }}" class="btn btn-light">Cancel</a>
+
                     </form>
                   </div>
                 </div>

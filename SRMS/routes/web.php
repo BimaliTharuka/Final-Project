@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
@@ -127,12 +128,17 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::put('batches/{id}', [BatchController::class, 'update'])->name('batches.update');
         Route::delete('batches/{id}', [BatchController::class, 'destroy'])->name('batches.destroy');
 
-
+     //module routes
+        Route::get('modules', [ModuleController::class, 'index'])->name('modules.index');  // List all modules
+        Route::get('modules/create', [ModuleController::class, 'create'])->name('modules.create'); // Show the form to create a new module
+        Route::post('modules', [ModuleController::class, 'store'])->name('modules.store'); // Store a newly created module
+        Route::get('modules/{module}', [ModuleController::class, 'show'])->name('modules.show'); //view created module
+        Route::get('modules/{module}/edit', [ModuleController::class, 'edit'])->name('modules.edit'); // Show the form to edit an existing module
+        Route::put('modules/{module}', [ModuleController::class, 'update'])->name('modules.update'); // Update an existing module
+        Route::delete('modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy'); // Delete an existing module
 });
-
-
+   
     
-
 // Lecturer Routes
 Route::prefix('lecturer')->middleware(['auth', 'role:Lecturer'])->group(function () {
     Route::get('/dashboard', function () {
