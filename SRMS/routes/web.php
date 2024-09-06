@@ -136,6 +136,10 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::get('modules/{module}/edit', [ModuleController::class, 'edit'])->name('modules.edit'); // Show the form to edit an existing module
         Route::put('modules/{module}', [ModuleController::class, 'update'])->name('modules.update'); // Update an existing module
         Route::delete('modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy'); // Delete an existing module
+
+    // Results managemengt
+        Route::get('/results', [ResultController::class, 'admingetResults'])->name('results.admingetResults');
+
 });
    
     
@@ -197,6 +201,9 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
         return view('Student.resit_requestform');
     })->name('student.resit_requestform');
     Route::post('resit-requests', [ResitRequestController::class, 'store'])->name('resit-requests.store');
+    
+    //view results
+    Route::get('/results', [ResultController::class, 'getStudentresults'])->name('results.getStudentresults');
 
 
 });

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Batch;
 use App\Models\Course;
+use App\Models\Module;
 use App\Models\Result;
 use App\Models\ResultType;
 use Illuminate\Http\Request;
@@ -22,7 +24,9 @@ class ResultController extends Controller
         $courses = Course::all();
         $batches = Batch::all();
         $types = ResultType::all();
-        return view('Lecturer.addresults', compact('courses', 'batches', 'types'));
+        $modules = Module::all();
+
+        return view('Lecturer.addresults', compact('courses', 'batches', 'types','modules'));
     }
 
     public function store(Request $request) {
@@ -30,6 +34,7 @@ class ResultController extends Controller
             'course_id' => 'required',
             'batch_id' => 'required',
             'type_id' => 'required',
+            'module_id' => 'required',
             'file' => 'required|mimes:csv,txt'
         ]);
     
@@ -64,5 +69,21 @@ class ResultController extends Controller
  
          return redirect()->route('results.index')->with('success', 'Exam deleted successfully.');
      }
+
+     public function getStudentresults() {
+        
+        $user = User::where('id', auth()->user()->id)->first();
+        
+        $results = Result::where('student_id', $user["studentId"] )->get();
+        
+        return view('Student.results', compact('results'));
+    }
+
+    public function admingetResults() {
+        
+        $results = Result::all();
+        
+        return view('Admin.result_management', compact('results'));
+    }
 
 }

@@ -236,7 +236,7 @@
                 <span class="menu-title">Timetables</span>
               </a>
             </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('student.results') }}">
+              <a class="nav-link" href="{{ route('results.getStudentresults') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Results</span>
               </a>
