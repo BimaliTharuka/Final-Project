@@ -338,7 +338,9 @@
           <div class="content-wrapper">
           <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
           <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
-            <div class="row">
+          <a href="{{ route('student.medical_submission') }}"><button type="button" class="btn btn-primary btn-rounded btn-fw">Medical Submission</button></a>
+        <!-- End Existing Buttons --> 
+          <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">

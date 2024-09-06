@@ -255,7 +255,7 @@
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
-            </li>
+            </li>          
             <!-- <li class="nav-item nav-category">UI Elements</li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
