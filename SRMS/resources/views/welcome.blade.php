@@ -36,7 +36,7 @@
   <style>
     /* Custom Styles */
     .btn-custom-blue {
-      background-color: #007bff !important; /* Bootstrap's primary blue shade */
+      background-color: #007bff !important; 
       border-color: #007bff !important;
       color: white !important;
     }
@@ -45,8 +45,24 @@
       border-color: #004085 !important;
     }
     #calendar {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
+    }
+    /* .container {
+      margin-top: 100px; */
+    /* } */
+    .notice-board {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .calendar-container {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
     }
     /* Custom Styles */
     #header {
@@ -194,19 +210,35 @@
       <nav id="navmenu" class="navmenu">
           <ul>
               @if (Route::has('login'))
-                  @auth
-                      <!-- Dashboard Link for Authenticated Users -->
-                      <li><a href="{{ route('admin.dashboard') }}" class="active">Dashboard</a></li>
-                  @else                                
+              @auth
+                                    <a
+                                        href="{{ route('admin.dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Dashboard
+                                    </a>
+                                @else                               
                       <!-- Login Link -->
-                      <li><a href="{{ route('login') }}">Log in</a></li>
+                      <a
+                                        href="{{ route('login') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Log in
+                                    </a>
+
 
                       @if (Route::has('register'))
                           <!-- Register Link -->
-                          <li><a href="{{ route('register') }}">Register</a></li>
-                      @endif
-                  @endauth
-              @endif
+                          <a
+                                            href="{{ route('register') }}"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Register
+                                        </a>
+                                    @endif
+                                @endauth
+                            </nav>
+                        @endif
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -223,33 +255,57 @@
   <p>Student Result Management System</p> 
 </div> -->
 
+
 <div class="container mt-5">
-  <div class="row">
-    <!-- Notice Board on the Left Side -->
-    <div class="col-md-8">
-      <div class="card">
-        
-</div>
-    <!-- Calendar on the Right Side -->
-    <div class="col-md-4">
-      <div id="calendar"></div>
+    <div class="row">
+      <!-- Left Column for Notice Board -->
+      <div class="col-md-6">
+        <div class="notice-board">
+          <h2>Notice Board</h2>
+          <div class="card mt-3">
+            <div class="card-header bg-warning text-dark">
+              <h5 class="card-title">REVISED RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES</h5>
+              <small>by Lakmini Chamalika - Monday, 2 October 2023, 4:46 PM</small>
+            </div>
+            <div class="card-body">
+              <h6>Important Information</h6>
+              <p><strong>DATE:</strong> 27.09.2023</p>
+              <p><strong>TO:</strong> UNDERGRADUATES (LOCAL/ MOE APPROVED PROGRAMMES)</p>
+              <p><strong>FROM:</strong> REGISTRAR</p>
+              <p><strong>SUBJECT:</strong> RE-SIT, RE-TAKE & RE-CORRECTION FEES/CHARGES</p>
+              <hr>
+              <p><strong>IMPORTANT:</strong> Re-sit/Repeat & Re-correction fees will be applicable & effective in the following manner:</p>
+              <ul>
+                <li>For all on-going Programmes/Intakes with the commencement of the next immediate Semester.</li>
+                <li>For all new Intakes commencing on/after 1st October 2023.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column for Calendar -->
+      <div class="col-md-6">
+        <div class="calendar-container">
+          <h2>Calendar</h2>
+          <div id="calendar"></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <br>
 
 <!-- Footer -->
-<footer id="footer">
+<footer class="footer bg-light py-4 mt-4">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 text-center">
-      <div class="d-flex justify-content-center">
-              <span class="text-muted text-center">Created by Team 05 from BIT 03 2024</span>
-            </div>
+      <!-- Footer Center: Created by Team 05 -->
+      <div class="col-12 text-center">
+        <p class="mb-0">Created by Team 05 from BIT 03 2024</p>
       </div>
     </div>
   </div>
 </footer>
-
 
 <!-- Vendor JS Files -->
 <script src="{{asset('imports/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

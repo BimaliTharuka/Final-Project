@@ -116,7 +116,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link rel="shortcut icon" href="../../assets/images/saegiswh.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -126,7 +126,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                 <div class="brand-logo">
-                  <img src="../../assets/images/logo.svg" alt="logo">
+                  <img src="../../assets/images/logo-no-background.png" alt="logo">
                 </div>
                 <h4>New here?</h4>
                 <h6 class="fw-light">Signing up is easy. It only takes a few steps</h6>

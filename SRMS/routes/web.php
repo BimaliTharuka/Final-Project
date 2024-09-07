@@ -11,7 +11,7 @@ use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\MedicalSubmissionController;
-use App\Http\Controllers\NoticeController;
+// use App\Http\Controllers\NoticeController;
 
 
 
@@ -105,9 +105,9 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::post('/medical-submissions/{id}/update', [MedicalSubmissionController::class, 'update'])->name('admin.medical-submissions.update');
     Route::get('/medical-submissions/{id}/download', [MedicalSubmissionController::class, 'download'])->name('admin.medical-submissions.download');
 
-    // Admin routes for managing notices
-    Route::get('admin/notice', [NoticeController::class, 'index'])->name('admin.notice');
-    Route::post('admin/notice', [NoticeController::class, 'store'])->name('admin.notice.store');
+    // // Admin routes for managing notices
+    // Route::get('admin/notice', [NoticeController::class, 'index'])->name('admin.notice');
+    // Route::post('admin/notice', [NoticeController::class, 'store'])->name('admin.notice.store');
     
 });
 
@@ -186,6 +186,6 @@ Route::post('/lecturer/profile/update', [UserProfileController::class, 'updateLe
 // Route for student profile edit
 Route::get('/student/profile', [UserProfileController::class, 'studentProfile'])->name('student.profile');
 
-Route::get('/notices', [YourController::class, 'showNotices']);
+// Route::get('/notices', [YourController::class, 'showNotices']);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
