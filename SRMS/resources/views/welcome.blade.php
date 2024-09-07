@@ -159,7 +159,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{{asset ('assets/images/saegiswh.png')}}" alt="">
+        <img src="{{asset ('assets/images/logo-new.png')}}" alt="">
         <h1 class="sitename">Student Result managemnet System</h1>
       </a>
 
@@ -193,13 +193,13 @@
 
   
 
-<div class="p-5 bg-primary text-white text-center">
+<!-- <div class="p-5 bg-primary text-white text-center">
     <br><br>
   <h1>Saegis</h1>
   <img src="{{asset ('assets/images/saegiswh.png')}}" alt="">
   <br>
   <p>Student Result management System</p> 
-</div>
+</div> -->
 
 
 

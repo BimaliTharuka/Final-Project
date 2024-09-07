@@ -158,7 +158,7 @@
                   <div class="mt-3 d-grid gap-2">
                     <button class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" type="submit">SIGN UP</button>
                   </div>
-                  <div class="text-center mt-4 fw-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  <!-- <div class="text-center mt-4 fw-light"> Already have an account? <a href="login.html" class="text-primary">Login</a> -->
                   </div>
                 </form>
               </div>

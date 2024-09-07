@@ -116,7 +116,7 @@
                 <input type="search" class="form-control" placeholder="Search Here" title="Search here">
               </form>
             </li> -->
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                 <i class="icon-bell"></i>
                 <span class="count"></span>
@@ -154,7 +154,7 @@
                   </div>
                 </a>
               </div>
-            </li>
+            </li> -->
             <!-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="icon-mail icon-lg"></i>
@@ -203,7 +203,7 @@
                   <p class="mb-1 mt-3 fw-semibold">{{auth()->user()->name}}</p>
                   <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                 </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                <!-- <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a> -->
                 <!-- <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a> -->
@@ -230,12 +230,13 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="{{ route('student.timetable') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Timetables</span>
               </a>
-            </li><li class="nav-item">
+            </li>--> 
+            <li class="nav-item"> 
               <a class="nav-link" href="{{ route('results.getStudentresults') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Results </span>

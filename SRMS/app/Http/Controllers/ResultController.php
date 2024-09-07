@@ -36,11 +36,14 @@ class ResultController extends Controller
             'module_id' => 'required',
             'file' => 'required|mimes:csv,txt'
         ]);
-    
+     
         $file = $request->file('file');
         $path = $file->getRealPath();
         $data = array_map('str_getcsv', file($path));
-    
+     
+        // Skip the first row (headers)
+        array_shift($data);
+     
         foreach ($data as $row) {
             Result::create([
                 'course_id' => $request->course_id,
@@ -51,7 +54,7 @@ class ResultController extends Controller
                 'marks' => $row[1],
             ]);
         }
-    
+     
         return redirect()->route('results.index')->with('success', 'Results uploaded successfully');
     }
     
