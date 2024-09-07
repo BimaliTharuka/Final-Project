@@ -53,19 +53,17 @@
             </button>
           </div>
           <div>
-            <a class="navbar-brand brand-logo" href="index.html">
-              <img src="{{ asset('assets/images/logo.svg') }}" alt="logo" />
-            </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
-              <img src="{{ asset('assets/images/logo-mini.svg') }}" alt="logo" />
-            </a>
-          </div>
-        </div>
+  <a class="navbar-brand brand-logo" href="index.html">
+    <img src="{{ asset('assets/images/logo-no-background.png')}}" alt="SRMS Logo" />
+  </a>
+  <a class="navbar-brand brand-logo-mini" href="index.html">
+    <img src="{{ asset('assets/images/logo-no-background.png')}}" alt="SRMS Mini Logo" />
+  </a>
+</div>        </div>
         <div class="navbar-menu-wrapper d-flex align-items-top">
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -203,7 +201,7 @@
                   <p class="mb-1 mt-3 fw-semibold">{{auth()->user()->name}}</p>
                   <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                 </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                <a class="dropdown-item" href="{{ route('admin.profile.edit') }}"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
                 <!-- <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a> -->
@@ -408,6 +406,11 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+    <footer class="footer">
+            <div class="d-flex justify-content-center">
+              <span class="text-muted text-center">Created by Team 05 from BIT 03 2024</span>
+            </div>
+          </footer>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>

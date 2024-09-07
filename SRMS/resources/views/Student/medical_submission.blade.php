@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png' )}}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -59,8 +59,7 @@
   <a class="navbar-brand brand-logo-mini" href="index.html">
     <img src="{{ asset('assets/images/logo-no-background.png')}}" alt="SRMS Mini Logo" />
   </a>
-</div>
-        </div>
+</div>        </div>
         <div class="navbar-menu-wrapper d-flex align-items-top">
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
@@ -223,26 +222,26 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.dashboard') }}">
+          <li class="nav-item active">
+              <a class="nav-link" href="{{ route('student.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('lecturer.attendence') }}">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('student.timetable') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Attendence</span>
-              </a>
-            </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('results.index') }}">
-                <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Exam Results</span>
+                <span class="menu-title">Timetables</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.others') }}">
+              <a class="nav-link" href="{{ route('student.results') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Results </span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('student.exam-request') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Others</span>
+                <span class="menu-title">Exam Request</span>
               </a>
             </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
@@ -332,107 +331,52 @@
             </li> -->
           </ul>
         </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
 
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+    <!-- partial -->
+    <div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Medical Submission</h4>
+            <p class="card-description">Please fill out the form below to submit a medical.</p>
+            <form class="forms-sample" action ="{{route('student.medical-submission.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+                    
+                        <div class="mb-3">
+                             <label for="studentID">Student ID</label>
+                             <input type="text" class="form-control" name= 'student_id' id="studentID"  required>
+                         </div>
+
+                        <div class="mb-3">
+                            <label for="medical_condition" class="form-label">Medical Condition:</label>
+                            <input type="text" class="form-control" id="medical_condition" name="medical_condition" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="submission_date" class="form-label">Submission Date:</label>
+                            <input type="date" class="form-control" id="submission_date" name="submission_date" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="medical_report" class="form-label">Upload Medical Report:</label>
+                            <input type="file" class="form-control" id="medical_report" name="medical_report" accept=".pdf,.doc,.docx" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
-              </div>
-              </div>
-              </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
-          </footer> -->
-          <!-- partial -->
+            </main>
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
     </div>
     <footer class="footer">
             <div class="d-flex justify-content-center">
               <span class="text-muted text-center">Created by Team 05 from BIT 03 2024</span>
             </div>
           </footer>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
-    <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('assets/vendors/chart.js/chart.umd.js')}}"></script>
-    <script src="{{ asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('assets/js/off-canvas.js')}}"></script>
-    <script src="{{ asset('assets/js/template.js')}}"></script>
-    <script src="{{ asset('assets/js/settings.js')}}"></script>
-    <script src="{{ asset('assets/js/hoverable-collapse.js')}}"></script>
-    <script src="{{ asset('assets/js/todolist.js')}}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
-    <!-- End custom js for this page-->
- 
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

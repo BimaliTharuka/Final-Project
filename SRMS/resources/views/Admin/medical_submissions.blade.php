@@ -4,25 +4,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SRMS </title>
+    <title>SRMS - Medical Submissions</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css' )}}">
-    <link rel="stylesheet" href="{{ asset( 'assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css')}} ">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/typicons/typicons.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker')}}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css' )}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/select.dataTables.min.css' )}}">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css' )}}">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo-new.png' )}}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/typicons/typicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/simple-line-icons/css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/select.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
   </head>
   <body class="with-welcome-text">
     <div class="container-scroller">
@@ -224,27 +219,53 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.dashboard') }}">
+              <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('lecturer.attendence') }}">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
-                <span class="menu-title">Attendence</span>
+                <span class="menu-title">User Management</span>
               </a>
-            </li><li class="nav-item"> 
-              <a class="nav-link" href="{{ route('results.index') }}">
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('courses.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Courses</span>
+              </a>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('batches.index') }}">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Manage Batches</span>
+              </a>
+            </li><li class="nav-item "> 
+              <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
-                <span class="menu-title">Exam Results</span>
+                <span class="menu-title">Exam Management</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('lecturer.others') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('result_management') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
-                <span class="menu-title">Others</span>
+                <span class="menu-title">Result Management</span>
               </a>
             </li>
+            <li class="nav-item active">
+             <a class="nav-link" href="{{ route('admin.medical_submissions') }}">
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+              <span class="menu-title">Medical Submissions</span>
+            </a>
+          </li>
             <!-- <li class="nav-item nav-category">UI Elements</li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -332,107 +353,68 @@
             </li> -->
           </ul>
         </nav>
-        <!-- partial -->
+        <!--partial-->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
-<div class="col-lg-12 grid-margin stretch-card">
-
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                    <p class="card-description"> Add class <code>.table-hover</code>
-                    </p>
+                    <h4 class="card-title">Medical Submissions</h4>
+                    <p class="card-description">View and manage medical submissions</p>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
+                            <th>ID</th>
+                            <th>Student ID</th>
+                            <th>Medical Condition</th>
+                            <th>Submission Date</th>
+                            <th>Medical Report</th>
                             <th>Status</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          @foreach($medicalSubmissions as $submission)
+                            <tr>
+                              <td>{{ $submission->id }}</td>
+                              <td>{{ $submission->student_id }}</td>
+                              <td>{{ $submission->medical_condition }}</td>
+                              <td>{{ $submission->submission_date }}</td>
+                              <td>
+                                <a href="{{ asset($submission->medical_report_path) }}" target="_blank">Download Report</a>
+                              </td>
+                              <td>{{ $submission->status }}</td>
+                              <td>
+                                <a href="{{ route('admin.accept', $submission->id) }}" class="btn btn-success btn-rounded">Accept</a>
+                                <a href="{{ route('admin.reject', $submission->id) }}" class="btn btn-danger btn-rounded">Reject</a>
+                              </td>
+                            </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-              </div>
-              </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
             </div>
-          </footer> -->
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <footer class="footer">
+          </div>
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
             <div class="d-flex justify-content-center">
               <span class="text-muted text-center">Created by Team 05 from BIT 03 2024</span>
             </div>
           </footer>
-    <!-- container-scroller -->
+        </div>
+      </div>
+    </div>
     <!-- plugins:js -->
-    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
-    <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('assets/vendors/chart.js/chart.umd.js')}}"></script>
-    <script src="{{ asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('assets/js/off-canvas.js')}}"></script>
-    <script src="{{ asset('assets/js/template.js')}}"></script>
-    <script src="{{ asset('assets/js/settings.js')}}"></script>
-    <script src="{{ asset('assets/js/hoverable-collapse.js')}}"></script>
-    <script src="{{ asset('assets/js/todolist.js')}}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
+    <script src="{{ asset('assets/js/off-canvas.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
-    <!-- End custom js for this page-->
- 
-</body>
+  </body>
 </html>
