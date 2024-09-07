@@ -65,7 +65,7 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -245,6 +245,11 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
+              </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
@@ -261,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item active">
-              <a class="nav-link" href="{{ route('exam_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -367,105 +372,37 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th> User </th>
-                            <th> First name </th>
-                            <th> Progress </th>
-                            <th> Amount </th>
-                            <th> Deadline </th>
+                            <th>Batch</th>
+                            <th>Course</th>
+                            <th>Module</th>
+                            <th>Results Type</th> 
+                            <th>Marks</th>
+                            <th>Action</th>
+
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face1.jpg" alt="image" />
+                          
+                        @foreach($results as $result)
+                        <td>{{ $result->batch->name }}</td>
+                            <td>{{ $result->course->description }}</td>
+                            <td>{{ $result->module->name }}</td>
+                            <td>{{ $result->resultType->type_name }}</td>
+                            <td>{{ $result->marks }}</td>
+                            <td> 
+                            <a href ="{{ route('results.adminResultshow', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+                            <form  action="{{ route('results.adminDeleteresult', $result->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
                             </td>
-                            <td> Herman Beck </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
+                            
                           </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face2.jpg" alt="image" />
-                            </td>
-                            <td> Messsy Adam </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $245.30 </td>
-                            <td> July 1, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face3.jpg" alt="image" />
-                            </td>
-                            <td> John Richards </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $138.00 </td>
-                            <td> Apr 12, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face4.jpg" alt="image" />
-                            </td>
-                            <td> Peter Meggik </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face5.jpg" alt="image" />
-                            </td>
-                            <td> Edward </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 160.25 </td>
-                            <td> May 03, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face6.jpg" alt="image" />
-                            </td>
-                            <td> John Doe </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 123.21 </td>
-                            <td> April 05, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../assets/images/faces/face7.jpg" alt="image" />
-                            </td>
-                            <td> Henry Tom </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 150.00 </td>
-                            <td> June 16, 2015 </td>
-                          </tr>
+                          
+                          @endforeach  
+                            
+                  
                         </tbody>
                       </table>
                     </div>

@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -239,13 +239,13 @@
               <a class="nav-link" href="{{ route('courses.index') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Courses</span>
-              </a>
-              <li class="nav-item">
+              </a></li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('batches.index') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
-              </li><li class="nav-item"> 
+              </li><li class="nav-item active"> 
               <a class="nav-link" href="{{ route('modules.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Module Management</span>
@@ -358,85 +358,63 @@
             </li> -->
           </ul>
         </nav>
-          <div class="col-10 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Add New user Form</h4>
-                    <p class="card-description"> User Details </p>
-                    <form class="forms-sample" action ="{{route('user_store')}}" method="post" enctype="multipart/form-data">
-                      @csrf
-                      <div class="form-group">
-                        <label for="exampleInputName1">Student ID</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="ID">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" name ="email" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Role</label>
-                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
-                          <option>Role</option>
-                          <option>Admin</option>
-                          <option>Lecturer</option>
-                          <option>Student</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-select" id="exampleSelectGender" name ="gender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <div class="image-upload">
-                      <h6>{{__('Add user Pofile Photo')}}</h6>
-                        <input type="file" name="user_image">
-                        <div class="image-uploads">
-                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
-                          
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputMobile">Mobile</label>
-                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleTextarea1">Address</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
-                    </form>
-                  </div>
-                </div>
-              </div>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <!-- <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a> -->
+          <a href ="{{ route('modules.create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  
+                  <div class="card-body">
+                    <h4 class="card-title">Course Modules</h4>
+                      <p class="card-description"> Add modules
+                      </p>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Module name</th>
+                            <th>Description</th>
+                            <th>Course ID</th>   
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($modules as $module)
+                          <tr>
+                            <td>{{ $module->name }}</td>
+                            <td>{{ $module->description }}</td>
+                            <td>{{ $module->course->description}}</td>
+                            <td> <a href ="{{ route('modules.edit', $module->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button></a>
+                             <a href ="{{ route('modules.show', $module->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
+                             <form  action="{{ route('modules.destroy', $module->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
+                        </form>
+                            </td>
+                            
+                          </tr>
+                          
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
               </div>
-          </div>
-         
-            <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              </div>
+            </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <!-- <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div> -->
-          </footer>
+            </div>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ResitRequestController;
@@ -132,12 +133,24 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::get('/calendar', [CalendarController::class, 'index'])->name('admin.calendar.index');
 
 
+     //module routes
+        Route::get('modules', [ModuleController::class, 'index'])->name('modules.index');  // List all modules
+        Route::get('modules/create', [ModuleController::class, 'create'])->name('modules.create'); // Show the form to create a new module
+        Route::post('modules', [ModuleController::class, 'store'])->name('modules.store'); // Store a newly created module
+        Route::get('modules/{module}', [ModuleController::class, 'show'])->name('modules.show'); //view created module
+        Route::get('modules/{module}/edit', [ModuleController::class, 'edit'])->name('modules.edit'); // Show the form to edit an existing module
+        Route::put('modules/{module}', [ModuleController::class, 'update'])->name('modules.update'); // Update an existing module
+        Route::delete('modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy'); // Delete an existing module
+
+    // Results managemengt
+        Route::get('results/{id}', [ResultController::class, 'adminResultshow'])->name('results.adminResultshow');
+        Route::get('/results', [ResultController::class, 'admingetResults'])->name('results.admingetResults');
+        Route::delete('/results/{id}', [ResultController::class, 'adminDeleteresult'])->name('results.adminDeleteresult');
+        
 
 });
-
-
+   
     
-
 // Lecturer Routes
 Route::prefix('lecturer')->middleware(['auth', 'role:Lecturer'])->group(function () {
     Route::get('/dashboard', function () {
@@ -196,6 +209,9 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
         return view('Student.resit_requestform');
     })->name('student.resit_requestform');
     Route::post('resit-requests', [ResitRequestController::class, 'store'])->name('resit-requests.store');
+    
+    //view results
+    Route::get('/results', [ResultController::class, 'getStudentresults'])->name('results.getStudentresults');
 
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

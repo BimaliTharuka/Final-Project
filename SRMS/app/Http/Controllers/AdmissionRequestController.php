@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdmissionRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\AdmissionRequest;
 
 class AdmissionRequestController extends Controller
 {
     // Show all admission requests
     public function index()
     {
+        $users = User::all();
         $admissionRequests = AdmissionRequest::with('exam', 'student')->get();
-        return view('Admin.admission_requests', compact('admissionRequests'));
+        // dd($admissionRequests);
+        return view('Admin.admission_requests', compact('admissionRequests','users'));
     }
 
     // Store a new admission request in the database
@@ -20,7 +23,7 @@ class AdmissionRequestController extends Controller
         // dd($request);
         $validatedData = $request->validate([
             'exam_id' => 'required|exists:exams,id',
-            'student_id' => 'required|exists:users,id',
+            'student_id' => 'required',
         ]);
 
         AdmissionRequest::create($validatedData);

@@ -65,7 +65,7 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -359,9 +359,9 @@
 
                         @foreach($results as $result)
                           <tr>
-                            <td>{{ $result->course_id }}</td>
-                            <td>{{ $result->batch_id }}</td>
-                            <td>{{ $result->type_id }}</td>
+                            <td>{{ $result->course->description }}</td>
+                            <td>{{ $result->batch->name }}</td>
+                            <td>{{ $result->resultType->type_name }}</td>
                             <td> 
                                   <a href ="{{ route('results.show', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
                                   <form  action="{{ route('results.destroy', $result->id) }}" method="POST" style="display: inline;">

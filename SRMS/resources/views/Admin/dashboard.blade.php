@@ -65,10 +65,8 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-                <!-- Greeting Text -->
-                <h1 class="welcome-text" id="greeting-text">Good Morning, 
-                    <span class="text-black fw-bold">{{ auth()->user()->name }}</span>
-                </h1>
+              <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -207,13 +205,28 @@ window.onload = updateGreeting;
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Timetables</span>
               </a>
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
+              </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('student.results') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Results </span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('student.exam-request') }}">
+              <a class="nav-link" href="{{ route('admission.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Admission Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('resit.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Resit Request</span>
+              </a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Exam Request</span>
               </a>

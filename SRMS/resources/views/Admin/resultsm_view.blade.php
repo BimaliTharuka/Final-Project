@@ -224,13 +224,13 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item">
+          <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -265,123 +265,43 @@
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Resit Request</span>
               </a>
-            </li><li class="nav-item">
+            </li><li class="nav-item active">
               <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
             </li>
-            <!-- <li class="nav-item nav-category">UI Elements</li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon mdi mdi-floor-plan"></i>
-                <span class="menu-title">UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Form elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="menu-icon mdi mdi-chart-line"></i>
-                <span class="menu-title">Charts</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="menu-icon mdi mdi-table"></i>
-                <span class="menu-title">Tables</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <i class="menu-icon mdi mdi-layers-outline"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="docs/documentation.html">
-                <i class="menu-icon mdi mdi-file-document"></i>
-                <span class="menu-title">Documentation</span>
-              </a>
-            </li> -->
           </ul>
         </nav>
           <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Add New user Form</h4>
-                    <p class="card-description"> User Details </p>
-                    <form class="forms-sample" action ="{{route('user_store')}}" method="post" enctype="multipart/form-data">
+                    
+                    <h4 class="card-title">View Results</h4>
+                    <p class="card-description">View marks </p>
+                    <form class="forms-sample">
                       @csrf
                       <div class="form-group">
-                        <label for="exampleInputName1">Student ID</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name ="studentId" placeholder="ID">
+                        <label for="exampleInputName1">Course</label>
+                        <input type="text" class="form-control" value= "{{ $result->course->description }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name ="name" placeholder="Name">
+                        <label for="exampleInputEmail3">Batch</label>
+                        <input type="text" class="form-control" value= "{{ $result->batch->name }}" id="exampleInputEmail3" name ="batch_id" placeholder="Course id" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" name ="email" placeholder="Email">
+                        <label for="exampleInputEmail3">Result Type</label>
+                        <input type="text" class="form-control" value= "{{ $result->resultType->type_name }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
                       </div>
-                      <div class="form-group">
+
+
+                      
+                    
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
-                      </div>
-                      <div class="form-group">
+                      </div> -->
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">Role</label>
                         <select class="form-select " id="exampleFormControlSelect2" name="role" required>
                           <option>Role</option>
@@ -396,8 +316,8 @@
                           <option>Male</option>
                           <option>Female</option>
                         </select>
-                      </div>
-                      <div class="image-upload">
+                      </div> -->
+                      <!-- <div class="image-upload">
                       <h6>{{__('Add user Pofile Photo')}}</h6>
                         <input type="file" name="user_image">
                         <div class="image-uploads">
@@ -412,9 +332,9 @@
                         <div class="form-group">
                         <label for="exampleTextarea1">Address</label>
                         <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary me-2">Submit</button>
-                      <a href="{{ route('user_management') }}" class="btn btn-light">Cancel</a>
+                      </div> -->
+                      
+                      <a href="{{ route('results.admingetResults') }}" class="btn btn-light">Cancel</a>
                     </form>
                   </div>
                 </div>

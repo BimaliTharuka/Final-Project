@@ -65,7 +65,7 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -258,15 +258,15 @@
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputName1">Course</label>
-                        <input type="text" class="form-control" value= "{{ $result->course_id }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->course->description }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Batch</label>
-                        <input type="text" class="form-control" value= "{{ $result->batch_id }}" id="exampleInputEmail3" name ="name" placeholder="Course id" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->batch->name }}" id="exampleInputEmail3" name ="name" placeholder="Course id" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Result Type</label>
-                        <input type="text" class="form-control" value= "{{ $result->type_id }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->resultType->type_name }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
                       </div>
 
 
@@ -327,10 +327,10 @@
               </div>
           </div>
          
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
+            </div> -->
           </footer>
           <!-- partial -->
         </div>

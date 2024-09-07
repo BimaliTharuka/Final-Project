@@ -65,7 +65,7 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -230,12 +230,12 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
               </a>
-              <li class="nav-item">
+              <li class="nav-item active">
               <a class="nav-link" href="{{ route('courses.index') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Courses</span>
@@ -244,6 +244,11 @@
               <a class="nav-link" href="{{ route('batches.index') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
+              </a>
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
               </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
@@ -261,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -430,10 +435,10 @@
               </div>
           </div>
          
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-            </div>
+            </div> -->
           </footer>
           <!-- partial -->
         </div>

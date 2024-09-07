@@ -65,7 +65,7 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-              <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -245,12 +245,17 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
-            </li><li class="nav-item active"> 
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
+              </a>
+            </li><li class="nav-item "> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
               </a>
-            </li><li class="nav-item">
+            </li><li class="nav-item active">
               <a class="nav-link" href="{{ route('admission.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Admission Request</span>
@@ -261,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -361,24 +366,34 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hoverable Table</h4>
-                      <p class="card-description"> Add class <code>.table-hover</code>
+                    <h4 class="card-title">Admission Requests</h4>
+                      <!-- <p class="card-description"> Add class <code>.table-hover</code> -->
                       </p>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>Exam ID</th>
-                            <th>Student ID</th>
+                            <th>Exam Name</th>
+                            <th>Student Name</th>
                            
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($admissionRequests as $admissionRequest)
+                        
                           <tr>
-                            <td>{{ $admissionRequest->exam_id }}</td>
-                            <td>{{ $admissionRequest->student_id }}</td>
+                            <td>{{ $admissionRequest->exam->exam_name }}</td>
+                            <td>
+                            
+                                @if ($user = $users->find($admissionRequest->student_id))
+                                        {{ $user->name }}
+                                    @else
+                                        {{ $admissionRequest->student->name }}
+                                        @endif
+
+                            </td>
+
                             <td><a href ="{{ route('admission.view', $admissionRequest->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
 
                         <form  action="{{ route('admission.AcceptAdmissionRequest', $admissionRequest->id) }}" method="POST" style="display: inline;">

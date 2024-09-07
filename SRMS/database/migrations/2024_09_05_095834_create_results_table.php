@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
+            $table->string('student_id')->nullable();
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade'); // Foreign key to 'courses' table
             $table->foreignId('batch_id')->constrained('batches')->onDelete('cascade'); // Foreign key to 'batches' table
             $table->foreignId('type_id')->constrained('result_types')->onDelete('cascade'); // Foreign key to 'result_types' table
-            $table->foreignId('student_id')->constrained('students')->onDelete('cascade'); // Foreign key to 'students' table
+            
             $table->decimal('marks', 5, 2); // Column for marks (e.g., 95.50)
             $table->timestamps(); // Adds 'created_at' and 'updated_at' timestamps
         });
