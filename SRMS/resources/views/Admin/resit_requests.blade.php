@@ -385,7 +385,7 @@
                             <td>@if ($user = $users->find($resitRequest->student_id))
                                         {{ $user->name }}
                                     @else
-                                        {{ $resitRequest->student_id }}
+                                        {{ $resitRequest->student->name }}
                                         @endif
                             </td>
                             <td><a href ="{{ route('resit.view', $resitRequest->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>

@@ -22,7 +22,7 @@ class AdmissionRequest extends Model
 
     public function student()
     {
-        return $this->belongsTo(User::class, 'studentId', 'student_id');
+        return $this->belongsTo(User::class, 'student_id', 'studentId');
     }
 }
 

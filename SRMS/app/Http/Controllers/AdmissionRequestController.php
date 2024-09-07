@@ -13,6 +13,7 @@ class AdmissionRequestController extends Controller
     {
         $users = User::all();
         $admissionRequests = AdmissionRequest::with('exam', 'student')->get();
+        // dd($admissionRequests);
         return view('Admin.admission_requests', compact('admissionRequests','users'));
     }
 
@@ -22,7 +23,7 @@ class AdmissionRequestController extends Controller
         // dd($request);
         $validatedData = $request->validate([
             'exam_id' => 'required|exists:exams,id',
-            'student_id' => 'required|exists:users,id',
+            'student_id' => 'required',
         ]);
 
         AdmissionRequest::create($validatedData);

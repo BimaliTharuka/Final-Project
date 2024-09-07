@@ -389,7 +389,7 @@
                                 @if ($user = $users->find($admissionRequest->student_id))
                                         {{ $user->name }}
                                     @else
-                                        {{ $admissionRequest->student_id }}
+                                        {{ $admissionRequest->student->name }}
                                         @endif
 
                             </td>
