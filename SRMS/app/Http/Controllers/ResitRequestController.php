@@ -21,7 +21,7 @@ class ResitRequestController extends Controller
     {
        
         $validatedData = $request->validate([
-            'exam_id' => 'required|exists:exams,id',
+            'exam_id' => 'required',
             'student_id' => 'required',
         ]);
 

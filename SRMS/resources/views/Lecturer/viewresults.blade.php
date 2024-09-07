@@ -258,15 +258,15 @@
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputName1">Course</label>
-                        <input type="text" class="form-control" value= "{{ $result->course_id }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->course->description }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Batch</label>
-                        <input type="text" class="form-control" value= "{{ $result->batch_id }}" id="exampleInputEmail3" name ="name" placeholder="Course id" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->batch->name }}" id="exampleInputEmail3" name ="name" placeholder="Course id" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Result Type</label>
-                        <input type="text" class="form-control" value= "{{ $result->type_id }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
+                        <input type="text" class="form-control" value= "{{ $result->resultType->type_name }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
                       </div>
 
 

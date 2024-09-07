@@ -358,7 +358,7 @@
               <!-- Exam ID -->
               <div class="form-group">
                 <label for="studentID">Exam ID</label>
-                <input type="text" name= 'exam_id' class="form-control" id="studentID" placeholder="Enter Student ID" required>
+                <input type="text" name= 'exam_id' class="form-control" id="exam_id" placeholder="Enter Student ID" required>
               </div>
               <!-- Programme -->
               <div class="form-group">

@@ -359,9 +359,9 @@
 
                         @foreach($results as $result)
                           <tr>
-                            <td>{{ $result->course_id }}</td>
-                            <td>{{ $result->batch_id }}</td>
-                            <td>{{ $result->type_id }}</td>
+                            <td>{{ $result->course->description }}</td>
+                            <td>{{ $result->batch->name }}</td>
+                            <td>{{ $result->resultType->type_name }}</td>
                             <td> 
                                   <a href ="{{ route('results.show', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
                                   <form  action="{{ route('results.destroy', $result->id) }}" method="POST" style="display: inline;">

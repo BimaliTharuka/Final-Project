@@ -15,8 +15,7 @@ use App\Http\Controllers\ResultController;
 class ResultController extends Controller
 {
     public function index() {
-        $results = Result::all();
-        
+        $results = Result::with('batch','module','course','resultType')->get();
         return view('Lecturer.exam_result', compact('results'));
     }
 
@@ -81,13 +80,13 @@ class ResultController extends Controller
 
     public function admingetResults() {
         
-        $results = Result::all();
-        
+        $results = Result::with('batch','module','course','resultType')->get();
         return view('Admin.result_management', compact('results'));
     }
 
     public function adminResultshow($id) {
         $result = Result::find($id);
+
         return view('Admin.resultsm_view', compact('result'));
     }
 

@@ -28,9 +28,9 @@ class Result extends Model
      * Relationship with the Student model.
      * Assuming you have a Student model and a `student_id` column in the `results` table.
      */
-    public function student()
+    public function batch()
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(Batch::class);
     }
 
     /**
@@ -42,12 +42,18 @@ class Result extends Model
         return $this->belongsTo(Course::class);
     }
 
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
     /**
      * If you have a relationship with the ResultType model (e.g., for types like 'Final', 'Midterm', etc.).
      */
     public function resultType()
     {
-        return $this->belongsTo(ResultType::class);
+        return $this->belongsTo(ResultType::class,'type_id','id');
+        
     }
 
     /**

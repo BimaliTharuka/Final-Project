@@ -371,14 +371,14 @@
             @csrf
                 
               <!-- Student ID -->
-              <div class="form-group">
+              <div class="form-group"> 
                 <label for="studentID">Student ID</label>
                 <input type="text" class="form-control" value= "{{ $resitRequests->student_id }}" name='student_id' id="student_id" placeholder="Student ID" required>
               </div>
               <!-- Name -->
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" value= "{{ $resitRequests->student_name }}" name='student_name' id="exampleInputName1" placeholder="Name" required>
+                <input type="text" class="form-control" value= "{{ $resitRequests->student_name }}" name='name' id="exampleInputName1" placeholder="Name" required>
               </div>
               <!-- Exam ID -->
               <div class="form-group">

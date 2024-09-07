@@ -377,15 +377,17 @@
                             <th>Module</th>
                             <th>Results Type</th> 
                             <th>Marks</th>
+                            <th>Action</th>
+
                           </tr>
                         </thead>
                         <tbody>
                           
                         @foreach($results as $result)
-                        <td>{{ $result->batch_id }}</td>
-                            <td>{{ $result->course_id }}</td>
-                            <td>{{ $result->module_id }}</td>
-                            <td>{{ $result->type_id }}</td>
+                        <td>{{ $result->batch->name }}</td>
+                            <td>{{ $result->course->description }}</td>
+                            <td>{{ $result->module->name }}</td>
+                            <td>{{ $result->resultType->type_name }}</td>
                             <td>{{ $result->marks }}</td>
                             <td> 
                             <a href ="{{ route('results.adminResultshow', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
