@@ -10,6 +10,7 @@ use App\Http\Controllers\ResultController;
 use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
 
+
 // use App\Http\Controllers\StudentController;
 
 
@@ -192,6 +193,32 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
     })->name('student.resit_requestform');
     Route::post('resit-requests', [ResitRequestController::class, 'store'])->name('resit-requests.store');
 
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+    // Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+
+    // use App\Http\Controllers\CalendarController;
+    // Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.calenderindex');
+    
+    
+
+
+// Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('calendar');
+
+
+
+
+// Define the route for the calendar page
+// routes/web.php
+
+// Route::view('/calendar', 'calendar.index')->name('calendar.index');
+
+// routes/web.php
+
+Route::get('/calendar', [CalendarController::class, 'index'])
+->middleware('role:admin') // Example of middleware usage
+    ->name('calendar.index');
 
 });
 
