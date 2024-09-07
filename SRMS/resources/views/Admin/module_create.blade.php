@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -376,8 +376,15 @@
                         <input type="text" class="form-control" id="exampleInputEmail3" name ="description" placeholder="Module Description">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Course ID</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" name ="course_id" placeholder="Course ID">
+                        <label for="exampleInputPassword4">Course</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="course_id" required>
+                        
+                          <option value="">Select Course</option>
+                            @foreach($courses as $course)
+                          <option value="{{ $course->id }}">{{ $course->description }}</option>
+                            @endforeach
+                          
+                        </select>
                       </div>
                       
                       <button type="submit" class="btn btn-primary me-2">Submit</button>

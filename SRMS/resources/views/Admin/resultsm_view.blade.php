@@ -224,7 +224,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item">
+          <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
@@ -271,150 +271,92 @@
                 <span class="menu-title">Result Management</span>
               </a>
             </li>
-            <!-- <li class="nav-item nav-category">UI Elements</li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon mdi mdi-floor-plan"></i>
-                <span class="menu-title">UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Form elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="menu-icon mdi mdi-chart-line"></i>
-                <span class="menu-title">Charts</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="menu-icon mdi mdi-table"></i>
-                <span class="menu-title">Tables</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <i class="menu-icon mdi mdi-layers-outline"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="docs/documentation.html">
-                <i class="menu-icon mdi mdi-file-document"></i>
-                <span class="menu-title">Documentation</span>
-              </a>
-            </li> -->
           </ul>
         </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+          <div class="col-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Striped Table</h4>
-                    <p class="card-description"> Add class <code>.table-striped</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Batch</th>
-                            <th>Course</th>
-                            <th>Module</th>
-                            <th>Results Type</th> 
-                            <th>Marks</th>
-                          </tr>
-                        </thead>
-                        <tbody>
+                    
+                    <h4 class="card-title">View Results</h4>
+                    <p class="card-description">View marks </p>
+                    <form class="forms-sample">
+                      @csrf
+                      <div class="form-group">
+                        <label for="exampleInputName1">Course</label>
+                        <input type="text" class="form-control" value= "{{ $result->course_id }}" id="exampleInputName1" name ="course_id" placeholder="Name" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Batch</label>
+                        <input type="text" class="form-control" value= "{{ $result->batch_id }}" id="exampleInputEmail3" name ="name" placeholder="Course id" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Result Type</label>
+                        <input type="text" class="form-control" value= "{{ $result->type_id }}" id="exampleInputEmail3" name ="type_id" placeholder="Course id" readonly>
+                      </div>
+
+
+                      
+                    
+                      <!-- <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" name ="password" placeholder="Password">
+                      </div> -->
+                      <!-- <div class="form-group">
+                        <label for="exampleInputPassword4">Role</label>
+                        <select class="form-select " id="exampleFormControlSelect2" name="role" required>
+                          <option>Role</option>
+                          <option>Admin</option>
+                          <option>Lecturer</option>
+                          <option>Student</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-select" id="exampleSelectGender" name ="gender">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div> -->
+                      <!-- <div class="image-upload">
+                      <h6>{{__('Add user Pofile Photo')}}</h6>
+                        <input type="file" name="user_image">
+                        <div class="image-uploads">
+                          <img src="{{asset('assets/images/upload.svg')}}" alt="img">
                           
-                        @foreach($results as $result)
-                        <td>{{ $result->batch_id }}</td>
-                            <td>{{ $result->course_id }}</td>
-                            <td>{{ $result->module_id }}</td>
-                            <td>{{ $result->type_id }}</td>
-                            <td>{{ $result->marks }}</td>
-                            <td> 
-                            <a href ="{{ route('results.adminResultshow', $result->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
-                            <form  action="{{ route('results.adminDeleteresult', $result->id) }}" method="POST" style="display: inline;">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="btn btn-primary btn-rounded btn-fw">Delete</button>
-                        </form>
-                            </td>
-                            
-                          </tr>
-                          
-                          @endforeach  
-                            
-                  
-                        </tbody>
-                      </table>
-                    </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputMobile">Mobile</label>
+                          <input type="text" class="form-control" id="exampleInputMobile" name="phone_number" placeholder="Mobile number">
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleTextarea1">Address</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="address"></textarea>
+                      </div> -->
+                      
+                      <a href="{{ route('results.admingetResults') }}" class="btn btn-light">Cancel</a>
+                    </form>
                   </div>
                 </div>
               </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+          <!-- <a href ="{{ route('user_create') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button></a> -->
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  
+                </div>
+              </div>
+              </div>
+          </div>
+         
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
               <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
             </div>
-          </footer> -->
+          </footer>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

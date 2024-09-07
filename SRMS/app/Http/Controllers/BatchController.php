@@ -45,7 +45,7 @@ public function show($id)
 
 public function edit($id)
 {
-    $batch = Batch::findOrFail($id);
+    $batch = Batch::with('course')->findOrFail($id);
     $courses = Course::all();
     return view('Admin.batch_edit', compact('batch', 'courses'));
 }
@@ -56,12 +56,12 @@ public function update(Request $request, $id)
 
         $request->validate([
             'name' => 'required',
-            'course_id' => 'required',
+            // 'course_id' => 'required',
         ]);
 
         $batch->update([
             'name' => $request->input('name'),
-            'course_id' => $request->input('course_id'),
+            // 'course_id' => $request->input('course_id'),
         ]);
 
         return redirect()->route('batches.index')->with('success', 'Batch updated successfully.');

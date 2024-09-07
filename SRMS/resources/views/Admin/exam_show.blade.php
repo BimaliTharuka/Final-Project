@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -245,7 +245,12 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
-            </li><li class="nav-item"> 
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
+              </a>
+            </li><li class="nav-item active"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
@@ -261,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>

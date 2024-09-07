@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -266,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -378,7 +378,7 @@
 
                       <div class="form-group">
                         <label for="exampleInputEmail3">Course ID</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" value= "{{ $module->course_id }}" name ="course_id" placeholder="Course ID" readonly>
+                        <input type="text" class="form-control" id="exampleInputEmail3" value= "{{ $module->course->description }}" name ="course_id" placeholder="Course ID" readonly>
                       </div>
                       
                       <a href="{{ route('modules.index') }}" class="btn btn-light">Cancel</a>

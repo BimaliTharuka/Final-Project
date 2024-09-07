@@ -245,7 +245,7 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
-              </li><li class="nav-item active"> 
+              </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('modules.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Module Management</span>

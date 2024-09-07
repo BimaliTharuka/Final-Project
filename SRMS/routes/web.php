@@ -138,7 +138,10 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::delete('modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy'); // Delete an existing module
 
     // Results managemengt
+        Route::get('results/{id}', [ResultController::class, 'adminResultshow'])->name('results.adminResultshow');
         Route::get('/results', [ResultController::class, 'admingetResults'])->name('results.admingetResults');
+        Route::delete('/results/{id}', [ResultController::class, 'adminDeleteresult'])->name('results.adminDeleteresult');
+        
 
 });
    

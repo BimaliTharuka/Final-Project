@@ -224,13 +224,13 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-          <li class="nav-item active">
+          <li class="nav-item ">
               <a class="nav-link" href="{{ route('student.dashboard') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -245,6 +245,11 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
               </a>
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
+              </a>
             </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
@@ -255,13 +260,13 @@
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Admission Request</span>
               </a>
-              </li><li class="nav-item">
+              </li><li class="nav-item active">
               <a class="nav-link" href="{{ route('resit.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -362,23 +367,23 @@
           <div class="card-body">
             <h4 class="card-title">Resit Exam Request Application</h4>
             <p class="card-description">Please fill out the form below to request a resit exam.</p>
-            <form class="forms-sample">
+            <form class="forms-sample" action = "{{route('resit-requests.store')}}" method="post" enctype="multipart/form-data" >
             @csrf
                 
               <!-- Student ID -->
               <div class="form-group">
                 <label for="studentID">Student ID</label>
-                <input type="text" class="form-control" value= "{{ $resitRequests->student_id }}" name= 'student_id' id="studentID" placeholder="Student ID" required>
+                <input type="text" class="form-control" value= "{{ $resitRequests->student_id }}" name='student_id' id="student_id" placeholder="Student ID" required>
               </div>
               <!-- Name -->
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" value= "{{ $resitRequests->student_name }}" name= 'student_name' id="exampleInputName1" placeholder="Name" required>
+                <input type="text" class="form-control" value= "{{ $resitRequests->student_name }}" name='student_name' id="exampleInputName1" placeholder="Name" required>
               </div>
               <!-- Exam ID -->
               <div class="form-group">
                 <label for="studentID">Exam ID</label>
-                <input type="text" name= 'exam_id' value= "{{ $resitRequests->exam_id }}" class="form-control" id="studentID" placeholder="Enter Student ID" required>
+                <input type="text" name= 'exam_id' value= "{{ $resitRequests->exam_id }}" class="form-control" id="exam_id" placeholder="Enter Student ID" required>
               </div>
               <!-- Programme -->
               <div class="form-group">

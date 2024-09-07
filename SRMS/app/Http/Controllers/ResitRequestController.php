@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\ResitRequest;
 use Illuminate\Http\Request;
 
@@ -10,16 +11,18 @@ class ResitRequestController extends Controller
     // Show all re-sit requests
     public function index()
     {
+        $users = User::all();
         $resitRequests = ResitRequest::with('exam', 'student')->get();
-        return view('Admin.resit_requests', compact('resitRequests'));
+        return view('Admin.resit_requests', compact('resitRequests','users'));
     }
 
     // Store a new re-sit request in the database
     public function store(Request $request)
     {
+       
         $validatedData = $request->validate([
             'exam_id' => 'required|exists:exams,id',
-            'student_id' => 'required|exists:users,id',
+            'student_id' => 'required',
         ]);
 
         ResitRequest::create($validatedData);

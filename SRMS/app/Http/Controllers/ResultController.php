@@ -86,4 +86,17 @@ class ResultController extends Controller
         return view('Admin.result_management', compact('results'));
     }
 
+    public function adminResultshow($id) {
+        $result = Result::find($id);
+        return view('Admin.resultsm_view', compact('result'));
+    }
+
+    public function adminDeleteresult($id)
+     {
+         $result = Result::findOrFail($id);
+         $result->delete();
+ 
+         return redirect()->route('results.admingetResults')->with('success', 'Exam deleted successfully.');
+     }
+    
 }

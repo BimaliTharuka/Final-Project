@@ -250,7 +250,7 @@
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Module Management</span>
               </a>
-            </li><li class="nav-item active"> 
+            </li><li class="nav-item"> 
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
@@ -266,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -385,7 +385,7 @@
                           <tr>
                             <td>{{ $module->name }}</td>
                             <td>{{ $module->description }}</td>
-                            <td>{{ $module->course_id }}</td>
+                            <td>{{ $module->course->description}}</td>
                             <td> <a href ="{{ route('modules.edit', $module->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button></a>
                              <a href ="{{ route('modules.show', $module->id) }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">View</button></a>
                              <form  action="{{ route('modules.destroy', $module->id) }}" method="POST" style="display: inline;">

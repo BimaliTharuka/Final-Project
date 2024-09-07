@@ -230,7 +230,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('user_management') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">User Management</span>
@@ -240,7 +240,7 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Courses</span>
               </a>
-              <li class="nav-item">
+              <li class="nav-item active">
               <a class="nav-link" href="{{ route('batches.index') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Manage Batches</span>
@@ -249,6 +249,11 @@
               <a class="nav-link" href="{{ route('exams.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Management</span>
+              </a>
+              </li><li class="nav-item"> 
+              <a class="nav-link" href="{{ route('modules.index') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Module Management</span>
               </a>
             </li><li class="nav-item">
               <a class="nav-link" href="{{ route('admission.index') }}">
@@ -261,7 +266,7 @@
                 <span class="menu-title">Resit Request</span>
               </a>
             </li><li class="nav-item">
-              <a class="nav-link" href="{{ route('result_management') }}">
+              <a class="nav-link" href="{{ route('results.admingetResults') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Result Management</span>
               </a>
@@ -366,10 +371,10 @@
                         <label for="exampleInputName1">Batch Name</label>
                         <input type="text" class="form-control" value= "{{ $batch->name }}" id="exampleInputName1" name ="name" placeholder="Name">
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="exampleInputEmail3">Course ID</label>
-                        <input type="text" class="form-control" value= "{{ $batch->course_id }}" id="exampleInputEmail3" name ="course_id" placeholder="Course id">
-                      </div>
+                        <input type="text" class="form-control" value= "{{ $batch->course->description }}" id="exampleInputEmail3" name ="description" placeholder="Course id">
+                      </div> -->
                       <!-- <div class="form-group">
                         <label for="exampleInputName1">Course</label>
                         <input type="text" class="form-control" id="exampleInputName1" name ="course" placeholder="Name">
