@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ResitRequestController;
 use App\Http\Controllers\AdmissionRequestController;
 
@@ -128,6 +129,9 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
         Route::put('batches/{id}', [BatchController::class, 'update'])->name('batches.update');
         Route::delete('batches/{id}', [BatchController::class, 'destroy'])->name('batches.destroy');
 
+        Route::get('/calendar', [CalendarController::class, 'index'])->name('admin.calendar.index');
+
+
 
 });
 
@@ -196,29 +200,11 @@ Route::prefix('student')->middleware(['auth', 'role:Student'])->group(function (
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-    // Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
-
-    // use App\Http\Controllers\CalendarController;
-    // Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.calenderindex');
-    
     
 
 
-// Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('calendar');
 
 
-
-
-// Define the route for the calendar page
-// routes/web.php
-
-// Route::view('/calendar', 'calendar.index')->name('calendar.index');
-
-// routes/web.php
-
-Route::get('/calendar', [CalendarController::class, 'index'])
-->middleware('role:admin') // Example of middleware usage
-    ->name('calendar.index');
 
 });
 

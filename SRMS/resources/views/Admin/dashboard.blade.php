@@ -282,7 +282,7 @@ window.onload = updateGreeting;
                     <div class="card-body">
                         <h5 class="card-title text-primary">Upcoming Exam</h5>
                         <p>There are no upcoming exams</p>
-                        <a href="{{ route('calendar.index') }}" class="btn btn-primary">Go to calendar</a> <!-- Updated link -->
+                        <a href="{{ route('admin.calendar.index') }}" class="btn btn-primary">Go to calendar</a> <!-- Updated link -->
                     </div>
                 </div>
 

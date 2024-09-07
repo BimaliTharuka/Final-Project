@@ -8,8 +8,8 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        // return view('calendar.index');
-        dd('Calendar route is working');
-    return view('calendar.index');
+        
+        
+    return view('Admin.test');
     }
 }
