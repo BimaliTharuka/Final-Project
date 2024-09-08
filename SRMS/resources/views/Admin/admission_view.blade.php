@@ -382,17 +382,17 @@
               <!-- Full Name -->
               <div class="form-group">
                 <label for="fullName">Full Name</label>
-                <input type="text" class="form-control" name= 'student_name' value= "{{ $admissionRequest->Student_name }}" id="fullName" placeholder="Enter Name" required>
+                <input type="text" class="form-control" name= 'student_name' value= "{{ $admissionRequest->Student_name }}" id="fullName" placeholder="Enter Name" >
               </div>
               <!-- Name with Initials -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="NamewithInitials">Name with Initials</label>
                 <input type="text" class="form-control" name= 'name' value= "{{ $admissionRequest->name}}" id="NamewithInitials" placeholder="Name with Initials" required>
-              </div>
+              </div> -->
               <!-- Contact Number -->
               <div class="form-group">
                 <label for="contactNumber">Contact Number</label>
-                <input type="tel" class="form-control" name= 'contactno' value= "{{ $admissionRequest->contact}}" id="contactNumber" placeholder="Enter Contact Number" required>
+                <input type="tel" class="form-control" name= 'contactno' value= "{{ $admissionRequest->contact}}" id="contactNumber" placeholder="Enter Contact Number" >
               </div>
               <!-- Attempt -->
               <div class="form-group">
@@ -404,21 +404,21 @@
                 </select>
               </div>
               <!-- Course Codes -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="courseCodes">Course Code</label>
                 <div id="courseCodes">
                   <input type="text" class="form-control mb-2" name="courseCode" placeholder="Enter Course Code" required>
                 </div>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseCodeField()">Add Another Course Code</button>
-              </div>
+              </div> -->
               <!-- Course Titles -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="courseTitles">Course Title</label>
                 <div id="courseTitles">
                   <input type="text" class="form-control mb-2" name="courseTitle" placeholder="Enter Course Title" required>
                 </div>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseTitleField()">Add Another Course Title</button>
-              </div>
+              </div> -->
               <!-- Note -->
               <div class="form-group">
                 <p class="text-muted">Please add the course code and course title that apply for the admission of the examination.</p>

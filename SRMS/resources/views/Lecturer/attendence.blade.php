@@ -230,22 +230,24 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
               <a class="nav-link" href="{{ route('lecturer.attendence') }}">
                 <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Attendence</span>
               </a>
-            </li><li class="nav-item"> 
+            </li> -->
+            <li class="nav-item"> 
               <a class="nav-link" href="{{ route('results.index') }}">
                 <i class="mdi mdi-book-open-variant menu-icon"></i>
                 <span class="menu-title">Exam Results</span>
               </a>
-            </li><li class="nav-item">
+            </li>
+            <!-- <li class="nav-item">
               <a class="nav-link" href="{{ route('lecturer.others') }}">
                 <i class="mdi mdi-trending-up menu-icon"></i>
                 <span class="menu-title">Others</span>
               </a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item nav-category">UI Elements</li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

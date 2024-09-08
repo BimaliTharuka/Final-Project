@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\UserUpdatedMail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -77,6 +79,15 @@ class AdminController extends Controller
 
         $users->user_image=$userImage;
         $users->save();
+
+        $data=[
+            'name'=> $users->name,
+            'email'=>$users->email 
+
+        ];
+
+        Mail::to($users->email)->send(new UserUpdatedMail($data));
+        
 
         return redirect()->route('user_management')->with('success', 'User created successfully.');
         }

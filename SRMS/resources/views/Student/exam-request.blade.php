@@ -338,13 +338,13 @@
         <div class="main-panel">
           <div class="content-wrapper">
           <a href ="{{ route('student.admission-request') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Admission Request</button></a>
-          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw">Resit Request</button></a>
+          <a href ="{{ route('student.resit_requestform') }}" ><button type="button" class="btn btn-primary btn-rounded btn-fw" style="margin-left:150px">Resit Request</button></a>
             <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <!-- <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Requested exams</h4>
-                    <!-- <p class="card-description"> Add class <code>.table-hover</code> -->
+                    
                     </p>
                     <div class="table-responsive">
                     <table class="table table-hover">
@@ -366,7 +366,7 @@
 
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               </div>
               </div>

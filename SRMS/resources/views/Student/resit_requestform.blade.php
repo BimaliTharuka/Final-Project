@@ -362,24 +362,24 @@
                 <input type="text" name= 'exam_id' class="form-control" id="exam_id" placeholder="Enter Student ID" required>
               </div>
               <!-- Programme -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="programme">Programme</label>
                 <input type="text" class="form-control" name= 'programme' id="programme" placeholder="Programme" required>
-              </div>
+              </div> -->
               <!-- Batch Number -->
               <div class="form-group">
                 <label for="batchnumber">Batch Number</label>
                 <input type="text" class="form-control" name= 'batch_no' id="batchnumber" placeholder="Batch Number" required>
               </div>
               <!-- Semester -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="semester">Semester</label>
                 <input type="text" class="form-control" name= 'semester' id="semester" placeholder="Semester" required>
-              </div>
+              </div> -->
               <!-- Year -->
               <div class="form-group">
                 <label for="year">Year</label>
-                <select class="form-control" id="year" required>
+                <select class="form-control" id="year" >
                   <option value="">Select Year</option>
                   <option value="2024">2024</option>
                   <option value="2023">2023</option>
@@ -396,10 +396,10 @@
                 <input type="email" class="form-control" name= 'email' id="exampleInputEmail3" placeholder="Email" required>
               </div>
               <!-- Module Code -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="moduleCode">Module Code</label>
                 <input type="text" class="form-control" name= 'module_code' id="moduleCode" placeholder="Module Code" required>
-              </div>
+              </div> -->
               <!-- Preferred Date for Resit -->
               <!-- <div class="form-group">
                 <label for="preferredDate">Preferred Date for Resit</label>
@@ -416,11 +416,11 @@
                 </select>
               </div>
               <!-- Attach Payment Slip -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="paymentSlip">Payment Slip</label>
                 <p>Please attach a copy of the payment slip.</p>
                 <input type="file" class="form-control" id="paymentSlip" required>
-              </div>
+              </div> -->
               <!-- Confirmation Checkbox -->
               <div class="form-check form-check-flat form-check-primary">
                 <label class="form-check-label">
